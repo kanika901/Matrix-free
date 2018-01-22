@@ -17,7 +17,7 @@ while (res > tol)
 	b = A*w; % only matrix-vector product with A % 1
 	lamda = max(abs(b));
 	w = b/lamda; %x1 = x0/lamda
-	res = norm(A*w-lamda*w); %x1 -x0 % 2 and 3
+	res = norm(A*w-lamda*w); %Ax??x % 2 and 3
 end
 val = eig(A);
 sprintf('Dimension: %i\n', n )

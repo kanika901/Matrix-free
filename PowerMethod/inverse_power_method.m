@@ -15,7 +15,7 @@ w = w/norm(w);
 cntr = 0;
 iter = 0;
 b = y;
-while (iter < 5) %fixed # iterations
+while (iter < 2) %fixed # iterations
     w = A\b;
     norm_w = norm(w);
     b = w/norm_w;
