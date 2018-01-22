@@ -1,0 +1,19 @@
+Total UF matrices tested: 297
+4 of them never converged, so total drops to 293
+
+Relative error formula: 
+abs_err = abs(true_eig_val) - abs(lamda);
+abs_err = abs(abs_err);
+rel_err = abs(abs_err / true_eig_val);
+
+Case 1: With # iterations = 4
+Relative error for 240 matrices < 9.81 * 10^-2
+240/293 = 81.5%
+
+Case 2: With # iterations = 5 
+Relative error for 246 matrices < 9.81 * 10^-2
+246/293 = 84%
+
+Case 3: With # iterations = 6 
+Relative error for 253 matrices < 9.50 * 10^-2
+253/293 = 86.3%
