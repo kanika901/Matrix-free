@@ -6,7 +6,7 @@ file_location = '/Users/kanikas/Documents/research/data_(mat)_matlab_format/mat_
 all_files = dir(file_location);
 all_names = { all_files.name };
 
-out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/PowerMethod/eig_val_results_iter4_rel_err.csv','a') ;
+out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/PowerMethod/eig_val_results_iter4_rel_err_v2.csv','a') ;
 fprintf(out_file,'Filename, Dimension , No. of Iterations, Eigen Value, Eigen Value from Power method, Absolute Error, Relative Error \n');
 
 for i = 4: length(all_names)
@@ -32,11 +32,27 @@ for i = 4: length(all_names)
                 iter = iter + 1;
                 b = A * w; %  matrix-vector product 
                 lamda = max(abs(b));
+                lamda_with_sign = max(b);
+                if lamda == lamda_with_sign
+                    lamda_sign = 1; % positive
+                else   
+                    lamda_sign = -1; % negative      
+                end
+                lamda = lamda * lamda_sign;
                 w = b/lamda; %x1 = x0/?
             end
-            val = eigs(A);
+            
+            val = max(abs(eigs(A)));
+            val_with_sign = max(eigs(A));
+            if val == val_with_sign
+               val_sign = 1; % positive
+            else   
+               val_sign = -1; % negative      
+            end
+               val = val * val_sign;
+
             sprintf('Dimension: %i', n)
-            true_eig_val = val(1)
+            true_eig_val = val;
             sprintf('Eigen value: %f', true_eig_val) % largest eigen value
             sprintf('Eigen value from power method: %f', lamda)
             sprintf('No. of matrix-vector products: %i', cntr)
