@@ -1,0 +1,11 @@
+Total UF matrices tested: 297
+73 of them NAN as smallest eigen value, so total drops to 224
+
+Relative error formula: 
+abs_err = abs(true_eig_val) - abs(lamda);
+abs_err = abs(abs_err);
+rel_err = abs(abs_err / true_eig_val);
+
+Case 1: With # iterations = 4
+Relative error for 188 matrices < 9.83 * 10^-1
+188/223 = 84.3% of matrices
