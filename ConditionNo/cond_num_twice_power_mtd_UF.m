@@ -1,9 +1,9 @@
 % Computes the smallest eigen value with the eig() and the power method applied twice.
-% Output: Smallest eigen value
+% Output: Smallest eigen value (smallest absolute value) for UFlorida matrices
 % Date: January 29, 2018
 % Supports only square matrices
 
-%Pseudocode
+% Pseudocode
 % This approach uses Power Method twice
 %1. Get A
 %2. Get lamda_max of A by Power method
@@ -11,13 +11,16 @@
 %4. Get lamda_max of B by Power method
 %5. lamda_min of A = (lamda_max of B) + (lamda_max of A) 
 
-file_location = '/Users/kanikas/Documents/research/data_(mat)_matlab_format/mat_files';
+cd '/Users/kanikas/Documents/mat_files_1014'
+%file_location = '/Users/kanikas/Documents/research/data_(mat)_matlab_format/mat_files';
+file_location = '/Users/kanikas/Documents/mat_files_1014';
 all_files = dir(file_location);
 all_names = { all_files.name };
+global in_file;
 
-out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/ConditionNo/eig_vals_cond_num_iter4_rel_err.csv','a') ;
-fprintf(out_file,'Filename, Dimension , True lagest Eigen Value, Eigen Value from Power method, Absolute Error, Relative Error for largest Eigen Value, True smallest Eigen Value, Smallest eigen value from double power method, Relative error for smallest Eigen value, Condition No. from power method, True Condition number, Relative error for condition no., Symmetric? \n');
-
+%out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/ConditionNo/eig_vals_cond_num_iter4_rel_err_v2.csv','a') ;
+out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/ConditionNo/eig_vals_cond_num_iter4_rel_err_all_matr_final.csv','a') ;
+fprintf(out_file,'Filename, Dimension, True largest Eigen Value, Eigen Value from Power method, Absolute Error, Relative Error for largest Eigen Value, True smallest Eigen Value, Smallest eigen value from double power method, Relative error for smallest Eigen value, Condn No. from lamda_max/lamda_min, True Condition number, Relative error for condition no., Symmetric? \n');
 
 for i = 4: length(all_names)
     if all_files(i).bytes > 1000000 % less than 1 MB for now
@@ -56,21 +59,22 @@ for i = 4: length(all_names)
             %Step 5: Get smallest Eigen value lamda_min of A = (lamda_max of B) + (lamda_max of A) 
             lamda_min_A = lamda_max_B + lamda_max_A;
 
-            try
-                true_smallest_eigen_val = eigs(A, 1, 'sr');
-            catch % for the case when eigs() fails to converge due to high condition number, reduce the tolerance of EIGS
-                opts.tol = 1e-2; 
-                true_smallest_eigen_val = eigs(A, 1, 'sr', opts);
-            end 
-
+            %true_smallest_eigen_val = eigs(A, 1, 'sr');
+            %We want smallest magnitude eigen value
+            true_smallest_eigen_val = min(abs(eigs(A))); %eigs(A, 1, 'SM'); 
+            
             sprintf('True smallest eigen value of A: %f ', true_smallest_eigen_val)
             sprintf('Smallest Eigen value from double power method approach: %f ', lamda_min_A)
             abs_err_small = abs(true_smallest_eigen_val) - abs(lamda_min_A);
             abs_err_small = abs(abs_err_small)
             rel_err_small = abs(abs_err_small / true_smallest_eigen_val)
-            condn_num = abs(lamda_max_A)/abs(lamda_min_A);
-            sprintf('Condition number from double power method approach: %f', condn_num)
-            true_condn_num = cond(A);
+            if lamda_min_A == 0
+                condn_num = Inf;
+            else
+                condn_num = abs(lamda_max_A)/abs(lamda_min_A);
+            end
+            sprintf('Condition number from lamda_max/lamda_min: %f', condn_num)
+            true_condn_num = condest(A);
             abs_err_condn = abs(true_condn_num) - abs(condn_num);
             abs_err_condn = abs(abs_err_condn)
             sprintf('True Condition number: %f', true_condn_num)
@@ -78,11 +82,12 @@ for i = 4: length(all_names)
             fprintf(out_file, '%s, %i, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f \n', all_files(i).name, n, true_eig_val_max_A, lamda_max_A, abs_err, rel_err, true_smallest_eigen_val, lamda_min_A, rel_err_small, condn_num, true_condn_num, rel_err_cond, symmetricity);
        end
     end
+movefile(in_file,'../DONE')
 end
-
 fclose(out_file);
 
 function [lamda, true_eig_val] = power_method(A,w) 
+    global in_file
     iter = 1;
     %abs_err = 0;
     %rel_err = 0;
@@ -101,18 +106,25 @@ function [lamda, true_eig_val] = power_method(A,w)
         lamda = lamda * lamda_sign;
         w = b/lamda; %x1 = x0/?
     end
-
-    val = max(abs(eigs(A)));
-    val_with_sign = max(eigs(A));
-    if val == val_with_sign
-       val_sign = 1; % positive
-    else   
-       val_sign = -1; % negative      
+    
+    try % to handle the error --> with ARPACK routine dneupd: dnaupd did not find any eigenvalues to sufficient accuracy.
+         val = eigs(A, 1, 'LM'); %max(abs(eigs(A)))
+    catch
+         opts.tol = 1e-6;
+         try
+             val = eigs(A, 1, 'LM', opts);
+         catch
+             movefile(in_file,'../notUsed')
+         end 
     end
-       val = val * val_sign;
-
-    true_eig_val = val;
-   
+%     val_with_sign = max(eigs(A));
+%     if val == val_with_sign
+%        val_sign = 1; % positive
+%     else   
+%        val_sign = -1; % negative      
+%     end
+%        val = val * val_sign;
+    true_eig_val = val;  
 end
 
 
