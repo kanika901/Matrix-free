@@ -18,9 +18,8 @@ all_files = dir(file_location);
 all_names = { all_files.name };
 global in_file;
 
-%out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/ConditionNo/eig_vals_cond_num_iter4_rel_err_v2.csv','a') ;
-out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/ConditionNo/eig_vals_cond_num_iter4_rel_err_all_matr_final.csv','a') ;
-fprintf(out_file,'Filename, Dimension, True largest Eigen Value, Eigen Value from Power method, Absolute Error, Relative Error for largest Eigen Value, True smallest Eigen Value, Smallest eigen value from double power method, Relative error for smallest Eigen value, Condn No. from lamda_max/lamda_min, True Condition number, Relative error for condition no., Symmetric? \n');
+out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/ConditionNo/eig_vals_cond_num_iter4_rel_err_all_matr_final_v2.csv','a') ;
+fprintf(out_file,'Filename, Dimension, True largest Eigen Value, Eigen Value from Power method, Absolute Error, Relative Error for largest Eigen Value, True smallest Eigen Value, Smallest eigen value from double power method, Relative error for smallest Eigen value, Condn No. from lamda_max/lamda_min, True Condn no. (condest(A 2)), condest(A 1), cond(A 2), cond(A 1), Relative error for condition no., Symmetric? \n');
 
 for i = 4: length(all_names)
     if all_files(i).bytes > 1000000 % less than 1 MB for now
@@ -74,12 +73,15 @@ for i = 4: length(all_names)
                 condn_num = abs(lamda_max_A)/abs(lamda_min_A);
             end
             sprintf('Condition number from lamda_max/lamda_min: %f', condn_num)
-            true_condn_num = condest(A);
+            true_condn_num = condest(A,2);
             abs_err_condn = abs(true_condn_num) - abs(condn_num);
             abs_err_condn = abs(abs_err_condn)
             sprintf('True Condition number: %f', true_condn_num)
             rel_err_cond = abs(abs_err_condn/true_condn_num);
-            fprintf(out_file, '%s, %i, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f \n', all_files(i).name, n, true_eig_val_max_A, lamda_max_A, abs_err, rel_err, true_smallest_eigen_val, lamda_min_A, rel_err_small, condn_num, true_condn_num, rel_err_cond, symmetricity);
+            cond_est_1 = condest(A,1);
+            cond_2 = cond(A,2);
+            cond_1 = cond(A,1);
+            fprintf(out_file, '%s, %i, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f \n', all_files(i).name, n, true_eig_val_max_A, lamda_max_A, abs_err, rel_err, true_smallest_eigen_val, lamda_min_A, rel_err_small, condn_num, true_condn_num, cond_est_1, cond_2, cond_1, rel_err_cond, symmetricity);
        end
     end
 movefile(in_file,'../DONE')
