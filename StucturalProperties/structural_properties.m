@@ -9,18 +9,18 @@ A = load('/Users/kanikas/Documents/research/data_(mat)_matlab_format/mat_files/4
 %A = load('/Users/kanikas/Documents/DONE/d_ss.mat');
 %A = load('/Users/kanikas/Documents/DONE/hydr1.mat');
 
-%cd '/Users/kanikas/Documents/DONE'
-%file_location = '/Users/kanikas/Documents/DONE';
-cd '/Volumes/Kank/MatrixFree/DONE';
-file_location = '/Volumes/Kank/MatrixFree/DONE';
+cd '/Users/kanikas/Documents/DONE'
+file_location = '/Users/kanikas/Documents/DONE';
+%cd '/Volumes/Kank/MatrixFree/DONE';
+%file_location = '/Volumes/Kank/MatrixFree/DONE';
 
 all_files = dir(file_location);
 all_names = { all_files.name };
 global in_file;
 
-%out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/StucturalProperties/struct_properties_all_matr_final_v2.csv','a') ;
+out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/StucturalProperties/struct_properties_all_matr_final_v4.csv','a') ;
 
-out_file = fopen('/Volumes/Kank/MatrixFree/struct_properties_all_matr_final_v3.csv','a') ;
+%out_file = fopen('/Volumes/Kank/MatrixFree/struct_properties_all_matr_final_v3.csv','a') ;
 fprintf(out_file,'Matrix name, Dimension, nnz, MaxNonzerosPerRow, MinNonzerosPerRow, AvgNonzerosPerRow, AbsoluteNonZeroSum, symmetricity, AvgDiagDist, NonZeroPatternSymmetryV1, Trace, AbsoluteTrace, OneNorm, InfinityNorm, FrobeniusNorm, SymmetricInfinityNorm, SymmetricFrobeniusNorm, AntiSymmetricInfinityNorm, AntiSymmetricFrobeniusNorm, DiagonalAverage, RowDiagonalDominance, ColDiagonalDominance, RowVariance, ColumnVariance, lowerBandwidth, upperBandwidth, DiagonalMean, DiagonalSign, DiagonalNonZeros \n');
 
 
@@ -118,8 +118,8 @@ for j = 4: length(all_names)
     % 19. Average diagonal distance
     % Average distance of nonzero diagonal to the main diagonal
     %first column with the non-zero
-    ix = [find(A(1,:)) find(A(:,1))']; % distance of all the non zero diagonals
-    avg_diag_dist = mean(ix-1); % subtract the nonzero diag distance from the main diagonal
+    dist = [find(A(1,:)) find(A(:,1))']; % distance of all the non zero diagonals
+    avg_diag_dist = mean(dist-1); % subtract the nonzero diag distance from the main diagonal
     sprintf('Average diagonal distance: %d', avg_diag_dist);
 
     % 20. RowDiagonalDominance 
