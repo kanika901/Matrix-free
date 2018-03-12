@@ -1,0 +1,109 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.ADTree -B 10 -E -3
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R43
+Instances:    36300
+Attributes:   44
+               condest(A 1)
+               True Condn no. (condest(A 2))
+               MinNonzerosPerRow
+               Condn No. from lamda_max/lamda_min
+               Smallest eigen value from double power method
+               symmetricity
+               Absolute Error
+               NonZeroPatternSymmetryV1
+               AvgDiagDist
+               SymmetricFrobeniusNorm
+               MaxNonzerosPerRow
+               True largest Eigen Value
+               AntiSymmetric9.99E+300inityNorm
+               True smallest Eigen Value
+               lowerBandwidth
+               Relative error for condition no.
+               Relative error for smallest Eigen value
+               9.99E+300inityNorm
+               AbsoluteTrace
+               AbsoluteNonZeroSum
+               Symmetric?
+               cond(A 2)
+               AntiSymmetricFrobeniusNorm
+               upperBandwidth
+               DiagonalSign
+               ColumnVariance
+               DiagonalMean
+               cond(A 1)
+               Relative Error for largest Eigen Value
+               Eigen Value from Power method
+               Symmetric9.99E+300inityNorm
+               FrobeniusNorm
+               Trace
+               DiagonalAverage
+               DiagonalNonZeros 
+               RowVariance
+               ColDiagonalDomi?ce
+               AvgNonzerosPerRow
+               RowDiagonalDomi?ce
+               Dimension
+               nnz
+               OneNorm
+              solver
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Alternating decision tree:
+
+: -0.253
+|  (1) lowerBandwidth < 328: 0.845
+|  (1) lowerBandwidth >= 328: -0.568
+|  |  (2) DiagonalNonZeros  < 366.5: -4.151
+|  |  (2) DiagonalNonZeros  >= 366.5: 0.315
+|  |  |  (6) MaxNonzerosPerRow < 34.5: 0.995
+|  |  |  (6) MaxNonzerosPerRow >= 34.5: -0.42
+|  (3) AbsoluteTrace < 456.349: -0.703
+|  |  (9) AbsoluteTrace < 15.958: -0.453
+|  |  |  (10) FrobeniusNorm < 2.475: 0.555
+|  |  |  (10) FrobeniusNorm >= 2.475: -3.064
+|  |  (9) AbsoluteTrace >= 15.958: 0.57
+|  (3) AbsoluteTrace >= 456.349: 0.576
+|  (4) True Condn no. (condest(A 2)) < 747000000000: 0.403
+|  (4) True Condn no. (condest(A 2)) >= 747000000000: -0.829
+|  |  (8) OneNorm < 15567838.5: -0.695
+|  |  (8) OneNorm >= 15567838.5: 0.739
+|  (5) Condn No. from lamda_max/lamda_min < 4.104: -0.573
+|  |  (7) AvgNonzerosPerRow < 3.797: -3.453
+|  |  (7) AvgNonzerosPerRow >= 3.797: 0.19
+|  (5) Condn No. from lamda_max/lamda_min >= 4.104: 0.354
+Legend: -ve = good, +ve = bad
+Tree size (total number of nodes): 31
+Leaves (number of predictor nodes): 21
+
+Time taken to build model: 19.39 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       33726               92.9091 %
+Incorrectly Classified Instances      2574                7.0909 %
+Kappa statistic                          0.8496
+Mean absolute error                      0.1429
+Root mean squared error                  0.2351
+Relative absolute error                 30.4553 %
+Root relative squared error             48.5459 %
+Total Number of Instances            36300     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.936     0.082      0.95      0.936     0.943      0.976    good
+                 0.918     0.064      0.896     0.918     0.907      0.976    bad
+Weighted Avg.    0.929     0.075      0.93      0.929     0.929      0.976
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 21191  1460 |     a = good
+  1114 12535 |     b = bad
+
+

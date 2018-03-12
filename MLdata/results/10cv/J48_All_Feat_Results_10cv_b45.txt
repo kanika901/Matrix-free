@@ -1,0 +1,491 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R43
+Instances:    36300
+Attributes:   44
+               condest(A 1)
+               True Condn no. (condest(A 2))
+               MinNonzerosPerRow
+               Condn No. from lamda_max/lamda_min
+               Smallest eigen value from double power method
+               symmetricity
+               Absolute Error
+               NonZeroPatternSymmetryV1
+               AvgDiagDist
+               SymmetricFrobeniusNorm
+               MaxNonzerosPerRow
+               True largest Eigen Value
+               AntiSymmetric9.99E+300inityNorm
+               True smallest Eigen Value
+               lowerBandwidth
+               Relative error for condition no.
+               Relative error for smallest Eigen value
+               9.99E+300inityNorm
+               AbsoluteTrace
+               AbsoluteNonZeroSum
+               Symmetric?
+               cond(A 2)
+               AntiSymmetricFrobeniusNorm
+               upperBandwidth
+               DiagonalSign
+               ColumnVariance
+               DiagonalMean
+               cond(A 1)
+               Relative Error for largest Eigen Value
+               Eigen Value from Power method
+               Symmetric9.99E+300inityNorm
+               FrobeniusNorm
+               Trace
+               DiagonalAverage
+               DiagonalNonZeros 
+               RowVariance
+               ColDiagonalDomi?ce
+               AvgNonzerosPerRow
+               RowDiagonalDomi?ce
+               Dimension
+               nnz
+               OneNorm
+              solver
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+ lowerBandwidth <= 327
+|    DiagonalNonZeros  <= 25
+|   |    MinNonzerosPerRow <= 2: good (1122.0)
+|   |    MinNonzerosPerRow > 2: bad (132.0/10.0)
+|    DiagonalNonZeros  > 25
+|   |    MinNonzerosPerRow <= 0: good (264.0)
+|   |    MinNonzerosPerRow > 0
+|   |   |    Relative Error for largest Eigen Value <= 0.566214
+|   |   |   |    condest(A 1) <= 5.72E19
+|   |   |   |   |    Relative error for smallest Eigen value <= 1.188651
+|   |   |   |   |   |    AbsoluteTrace <= 60.84369
+|   |   |   |   |   |   |    AntiSymmetricFrobeniusNorm <= 2.543585
+|   |   |   |   |   |   |   |    MinNonzerosPerRow <= 7: bad (1056.0/51.0)
+|   |   |   |   |   |   |   |    MinNonzerosPerRow > 7
+|   |   |   |   |   |   |   |   |    condest(A 1) <= 31843.90707: bad (66.0/4.0)
+|   |   |   |   |   |   |   |   |    condest(A 1) > 31843.90707: good (66.0)
+|   |   |   |   |   |   |    AntiSymmetricFrobeniusNorm > 2.543585: good (198.0)
+|   |   |   |   |   |    AbsoluteTrace > 60.84369
+|   |   |   |   |   |   |   solver = 89565283: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 8793455: bad (0.0)
+|   |   |   |   |   |   |   solver = 90197667: bad (0.0)
+|   |   |   |   |   |   |   solver = 49598909: bad (0.0)
+|   |   |   |   |   |   |   solver = 91036839: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 45869639
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 1
+|   |   |   |   |   |   |   |   |    condest(A 1) <= 419652447.8: bad (6.0)
+|   |   |   |   |   |   |   |   |    condest(A 1) > 419652447.8: good (3.0)
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow > 1: bad (126.76/1.0)
+|   |   |   |   |   |   |   solver = 45869638
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 1
+|   |   |   |   |   |   |   |   |    AbsoluteTrace <= 636647802.8: good (6.0/1.0)
+|   |   |   |   |   |   |   |   |    AbsoluteTrace > 636647802.8: bad (3.0)
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow > 1: bad (126.76/2.0)
+|   |   |   |   |   |   |   solver = 45869637
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 1
+|   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min <= 30459.63055: good (2.0)
+|   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min > 30459.63055
+|   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  <= 900: good (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  > 900: bad (4.0)
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow > 1: bad (126.76/2.0)
+|   |   |   |   |   |   |   solver = 47942867: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 89269802: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 89269803: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 89269801: bad (135.76/3.0)
+|   |   |   |   |   |   |   solver = 89269804: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 59072883: bad (0.0)
+|   |   |   |   |   |   |   solver = 59072882: bad (0.0)
+|   |   |   |   |   |   |   solver = 59072881: bad (0.0)
+|   |   |   |   |   |   |   solver = 7285381: bad (0.0)
+|   |   |   |   |   |   |   solver = 7285384: bad (0.0)
+|   |   |   |   |   |   |   solver = 59072884: bad (0.0)
+|   |   |   |   |   |   |   solver = 49598911: bad (0.0)
+|   |   |   |   |   |   |   solver = 49598910: bad (0.0)
+|   |   |   |   |   |   |   solver = 49598912: bad (0.0)
+|   |   |   |   |   |   |   solver = 30870721: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 36025723: bad (0.0)
+|   |   |   |   |   |   |   solver = 36025722: bad (0.0)
+|   |   |   |   |   |   |   solver = 53302993: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 30870720: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 64278029: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 36025724: bad (0.0)
+|   |   |   |   |   |   |   solver = 44526267: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 8793454: bad (0.0)
+|   |   |   |   |   |   |   solver = 8793456: bad (0.0)
+|   |   |   |   |   |   |   solver = 8793453: bad (0.0)
+|   |   |   |   |   |   |   solver = 17734818: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 32168839: bad (0.0)
+|   |   |   |   |   |   |   solver = 32168838: bad (0.0)
+|   |   |   |   |   |   |   solver = 57331597: bad (0.0)
+|   |   |   |   |   |   |   solver = 95762352: bad (135.76/3.0)
+|   |   |   |   |   |   |   solver = 57331599: bad (0.0)
+|   |   |   |   |   |   |   solver = 57331598: bad (0.0)
+|   |   |   |   |   |   |   solver = 32168837: bad (0.0)
+|   |   |   |   |   |   |   solver = 88865078: bad (0.0)
+|   |   |   |   |   |   |   solver = 88865079: bad (0.0)
+|   |   |   |   |   |   |   solver = 49834417: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 49834419: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 49834418: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 88865076: bad (0.0)
+|   |   |   |   |   |   |   solver = 88865077: bad (0.0)
+|   |   |   |   |   |   |   solver = 11256942: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 11256943: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 11256941: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 42851841: bad (135.76/2.0)
+|   |   |   |   |   |   |   solver = 11256944: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 31459546: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 17887723: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 91845162: bad (135.76/3.0)
+|   |   |   |   |   |   |   solver = 53362206: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 95762355: bad (135.76/6.0)
+|   |   |   |   |   |   |   solver = 12321508: bad (135.76/3.0)
+|   |   |   |   |   |   |   solver = 75830644
+|   |   |   |   |   |   |   |    Dimension <= 961
+|   |   |   |   |   |   |   |   |    AvgNonzerosPerRow <= 3.805326: bad (4.0)
+|   |   |   |   |   |   |   |   |    AvgNonzerosPerRow > 3.805326
+|   |   |   |   |   |   |   |   |   |    symmetricity <= 0
+|   |   |   |   |   |   |   |   |   |   |    Absolute Error <= 29.63558
+|   |   |   |   |   |   |   |   |   |   |   |    AntiSymmetric9.99E+300inityNorm <= 0.509906: good (9.0)
+|   |   |   |   |   |   |   |   |   |   |   |    AntiSymmetric9.99E+300inityNorm > 0.509906
+|   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  <= 340: good (10.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  > 340: bad (3.0)
+|   |   |   |   |   |   |   |   |   |   |    Absolute Error > 29.63558: bad (9.0)
+|   |   |   |   |   |   |   |   |   |    symmetricity > 0
+|   |   |   |   |   |   |   |   |   |   |    ColDiagonalDomi?ce <= 0: good (9.94)
+|   |   |   |   |   |   |   |   |   |   |    ColDiagonalDomi?ce > 0
+|   |   |   |   |   |   |   |   |   |   |   |    Relative error for condition no. <= 0.997: bad (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |    Relative error for condition no. > 0.997
+|   |   |   |   |   |   |   |   |   |   |   |   |    Eigen Value from Power method <= 257.616546: bad (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    Eigen Value from Power method > 257.616546: good (11.0)
+|   |   |   |   |   |   |   |    Dimension > 961
+|   |   |   |   |   |   |   |   |    Eigen Value from Power method <= -38.104152
+|   |   |   |   |   |   |   |   |   |    ColumnVariance <= 1.000131: good (4.0)
+|   |   |   |   |   |   |   |   |   |    ColumnVariance > 1.000131: bad (5.0)
+|   |   |   |   |   |   |   |   |    Eigen Value from Power method > -38.104152: bad (59.82/2.0)
+|   |   |   |   |   |   |   solver = 57331600: bad (0.0)
+|   |   |   |   |   |   |   solver = 43373444: bad (0.0)
+|   |   |   |   |   |   |   solver = 95762353: bad (135.76/5.0)
+|   |   |   |   |   |   |   solver = 43373441: bad (0.0)
+|   |   |   |   |   |   |   solver = 43373442: bad (0.0)
+|   |   |   |   |   |   |   solver = 43373443: bad (0.0)
+|   |   |   |   |   |   |   solver = 91068411: bad (0.0)
+|   |   |   |   |   |   |   solver = 91068410: bad (0.0)
+|   |   |   |   |   |   |   solver = 5890861: bad (0.0)
+|   |   |   |   |   |   |   solver = 85483012
+|   |   |   |   |   |   |   |    DiagonalSign <= -2: good (16.0)
+|   |   |   |   |   |   |   |    DiagonalSign > -2
+|   |   |   |   |   |   |   |   |    DiagonalMean <= 0.075077
+|   |   |   |   |   |   |   |   |   |    AvgDiagDist <= 7: bad (2.0)
+|   |   |   |   |   |   |   |   |   |    AvgDiagDist > 7: good (6.0/1.0)
+|   |   |   |   |   |   |   |   |    DiagonalMean > 0.075077
+|   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method <= -13990059.26
+|   |   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method <= -56624201.06: bad (3.0)
+|   |   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method > -56624201.06: good (2.0)
+|   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method > -13990059.26: bad (106.76/2.0)
+|   |   |   |   |   |   |   solver = 5890863: bad (0.0)
+|   |   |   |   |   |   |   solver = 5890862: bad (0.0)
+|   |   |   |   |   |   |   solver = 18868444: bad (0.0)
+|   |   |   |   |   |   |   solver = 18868441: bad (0.0)
+|   |   |   |   |   |   |   solver = 18868443: bad (0.0)
+|   |   |   |   |   |   |   solver = 18868442: bad (0.0)
+|   |   |   |   |   |   |   solver = 91068408: bad (0.0)
+|   |   |   |   |   |   |   solver = 47942864: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 47942865: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 47942866: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 91068409: bad (0.0)
+|   |   |   |   |   |   |   solver = 8520536: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 5890860: bad (0.0)
+|   |   |   |   |   |   |   solver = 82456576: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 29030069: bad (0.0)
+|   |   |   |   |   |   |   solver = 95762354: bad (135.76/8.0)
+|   |   |   |   |   |   |   solver = 90783920: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 99720138: bad (135.76/8.0)
+|   |   |   |   |   |   |   solver = 29030071: bad (0.0)
+|   |   |   |   |   |   |   solver = 29030070: bad (0.0)
+|   |   |   |   |   |   |   solver = 29030072: bad (0.0)
+|   |   |   |   |   |   |   solver = 85490469: bad (0.0)
+|   |   |   |   |   |   |   solver = 30870723: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 30870722: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 26415435: bad (0.0)
+|   |   |   |   |   |   |   solver = 26415434: bad (0.0)
+|   |   |   |   |   |   |   solver = 26415433: bad (0.0)
+|   |   |   |   |   |   |   solver = 26415432: bad (0.0)
+|   |   |   |   |   |   |   solver = 13323659: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 45869640
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 1
+|   |   |   |   |   |   |   |   |    True largest Eigen Value <= 1048576: good (4.0/1.0)
+|   |   |   |   |   |   |   |   |    True largest Eigen Value > 1048576: bad (5.0)
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow > 1: bad (126.76/1.0)
+|   |   |   |   |   |   |   solver = 36564233: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 68908713: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 7285382: bad (0.0)
+|   |   |   |   |   |   |   solver = 36564232: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 7285383: bad (0.0)
+|   |   |   |   |   |   |   solver = 75830645
+|   |   |   |   |   |   |   |    DiagonalNonZeros  <= 1706
+|   |   |   |   |   |   |   |   |    MinNonzerosPerRow <= 10
+|   |   |   |   |   |   |   |   |   |    DiagonalSign <= -2
+|   |   |   |   |   |   |   |   |   |   |    Relative Error for largest Eigen Value <= 0.095173: bad (9.0)
+|   |   |   |   |   |   |   |   |   |   |    Relative Error for largest Eigen Value > 0.095173
+|   |   |   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method <= -10.850443: good (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method > -10.850443: bad (2.0)
+|   |   |   |   |   |   |   |   |   |    DiagonalSign > -2
+|   |   |   |   |   |   |   |   |   |   |    AvgNonzerosPerRow <= 7.551316
+|   |   |   |   |   |   |   |   |   |   |   |    AvgNonzerosPerRow <= 3.859375: bad (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |    AvgNonzerosPerRow > 3.859375
+|   |   |   |   |   |   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 8
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    Trace <= 261.37216: bad (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    Trace > 261.37216
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method <= 42956462.72: good (13.94/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method > 42956462.72: bad (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    MaxNonzerosPerRow > 8: good (7.0)
+|   |   |   |   |   |   |   |   |   |   |    AvgNonzerosPerRow > 7.551316
+|   |   |   |   |   |   |   |   |   |   |   |    Dimension <= 67: good (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |    Dimension > 67
+|   |   |   |   |   |   |   |   |   |   |   |   |    Dimension <= 1879
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min <= 4.989653
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |    lowerBandwidth <= 113: good (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |    lowerBandwidth > 113: bad (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min > 4.989653: bad (22.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    Dimension > 1879: good (2.0)
+|   |   |   |   |   |   |   |   |    MinNonzerosPerRow > 10: bad (8.0)
+|   |   |   |   |   |   |   |    DiagonalNonZeros  > 1706: bad (46.82)
+|   |   |   |   |   |   |   solver = 36564234: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 81986705: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 29553941: bad (0.0)
+|   |   |   |   |   |   |   solver = 29553943: bad (0.0)
+|   |   |   |   |   |   |   solver = 29553942: bad (0.0)
+|   |   |   |   |   |   |   solver = 69654761: bad (0.0)
+|   |   |   |   |   |   |   solver = 29553944: bad (0.0)
+|   |   |   |   |   |   |   solver = 69654763: bad (0.0)
+|   |   |   |   |   |   |   solver = 69654762: bad (0.0)
+|   |   |   |   |   |   |   solver = 32874609: bad (0.0)
+|   |   |   |   |   |   |   solver = 32168840: bad (0.0)
+|   |   |   |   |   |   |   solver = 90197664: bad (0.0)
+|   |   |   |   |   |   |   solver = 90197665: bad (0.0)
+|   |   |   |   |   |   |   solver = 90197666: bad (0.0)
+|   |   |   |   |   |   |   solver = 69654760: bad (0.0)
+|   |   |   |   |   |   |   solver = 37052870
+|   |   |   |   |   |   |   |    DiagonalSign <= -2
+|   |   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 6
+|   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  <= 729: good (5.0)
+|   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  > 729: bad (4.0/1.0)
+|   |   |   |   |   |   |   |   |    MaxNonzerosPerRow > 6: bad (7.0)
+|   |   |   |   |   |   |   |    DiagonalSign > -2: bad (119.76/11.0)
+|   |   |   |   |   |   |   solver = 37052871: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 19932321: bad (0.0)
+|   |   |   |   |   |   |   solver = 19932323: bad (0.0)
+|   |   |   |   |   |   |   solver = 19932322: bad (0.0)
+|   |   |   |   |   |   |   solver = 19932324: bad (0.0)
+|   |   |   |   |   |   |   solver = 80361466: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 80361467: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 80361464: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 80361465: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 49834420: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 1216556: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 38678404: bad (0.0)
+|   |   |   |   |   |   |   solver = 38678401: bad (0.0)
+|   |   |   |   |   |   |   solver = 38678402: bad (0.0)
+|   |   |   |   |   |   |   solver = 38678403: bad (0.0)
+|   |   |   |   |   |   |   solver = 32874611: bad (0.0)
+|   |   |   |   |   |   |   solver = 32874610: bad (0.0)
+|   |   |   |   |   |   |   solver = 32874612: bad (0.0)
+|   |   |   |   |   |   |   solver = 44114477: bad (0.0)
+|   |   |   |   |   |   |   solver = 44114476: bad (0.0)
+|   |   |   |   |   |   |   solver = 44114479: bad (0.0)
+|   |   |   |   |   |   |   solver = 44114478: bad (0.0)
+|   |   |   |   |   |   |   solver = 36564235: bad (135.76/1.0)
+|   |   |   |   |   |   |   solver = 36025721: bad (0.0)
+|   |   |   |   |   |   |   solver = 75830647
+|   |   |   |   |   |   |   |    DiagonalSign <= -2
+|   |   |   |   |   |   |   |   |    lowerBandwidth <= 6
+|   |   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min <= 15.193599: bad (2.0)
+|   |   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min > 15.193599: good (2.0)
+|   |   |   |   |   |   |   |   |    lowerBandwidth > 6: bad (12.0)
+|   |   |   |   |   |   |   |    DiagonalSign > -2
+|   |   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 3: bad (9.0)
+|   |   |   |   |   |   |   |   |    MaxNonzerosPerRow > 3
+|   |   |   |   |   |   |   |   |   |    AvgNonzerosPerRow <= 31.248611
+|   |   |   |   |   |   |   |   |   |   |    AbsoluteNonZeroSum <= 13884180389
+|   |   |   |   |   |   |   |   |   |   |   |    DiagonalMean <= 0.466667
+|   |   |   |   |   |   |   |   |   |   |   |   |    Relative error for condition no. <= 0.999: good (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    Relative error for condition no. > 0.999
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  <= 329: good (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  > 329: bad (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |    DiagonalMean > 0.466667: good (62.76/5.94)
+|   |   |   |   |   |   |   |   |   |   |    AbsoluteNonZeroSum > 13884180389
+|   |   |   |   |   |   |   |   |   |   |   |    True smallest Eigen Value <= 30849793866
+|   |   |   |   |   |   |   |   |   |   |   |   |    condest(A 1) <= 17649962.48
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalMean <= 571702847.8: good (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalMean > 571702847.8: bad (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    condest(A 1) > 17649962.48: bad (12.0)
+|   |   |   |   |   |   |   |   |   |   |   |    True smallest Eigen Value > 30849793866: good (5.0)
+|   |   |   |   |   |   |   |   |   |    AvgNonzerosPerRow > 31.248611: bad (11.0/1.0)
+|   |   |   |   |   |   |   solver = 75830646
+|   |   |   |   |   |   |   |    AvgDiagDist <= 1.285714: bad (21.0/1.0)
+|   |   |   |   |   |   |   |    AvgDiagDist > 1.285714
+|   |   |   |   |   |   |   |   |    NonZeroPatternSymmetryV1 <= 0
+|   |   |   |   |   |   |   |   |   |    AbsoluteTrace <= 1140528604
+|   |   |   |   |   |   |   |   |   |   |    AvgDiagDist <= 7: good (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |    AvgDiagDist > 7
+|   |   |   |   |   |   |   |   |   |   |   |    AntiSymmetricFrobeniusNorm <= 5.510318
+|   |   |   |   |   |   |   |   |   |   |   |   |    Absolute Error <= 0.948877: bad (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    Absolute Error > 0.948877: good (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |    AntiSymmetricFrobeniusNorm > 5.510318: bad (21.0)
+|   |   |   |   |   |   |   |   |   |    AbsoluteTrace > 1140528604: good (5.0)
+|   |   |   |   |   |   |   |   |    NonZeroPatternSymmetryV1 > 0
+|   |   |   |   |   |   |   |   |   |    DiagonalSign <= -2
+|   |   |   |   |   |   |   |   |   |   |    AntiSymmetricFrobeniusNorm <= 178.225415: bad (4.0)
+|   |   |   |   |   |   |   |   |   |   |    AntiSymmetricFrobeniusNorm > 178.225415: good (2.0)
+|   |   |   |   |   |   |   |   |   |    DiagonalSign > -2
+|   |   |   |   |   |   |   |   |   |   |    MinNonzerosPerRow <= 6: good (51.76/4.0)
+|   |   |   |   |   |   |   |   |   |   |    MinNonzerosPerRow > 6
+|   |   |   |   |   |   |   |   |   |   |   |    AvgDiagDist <= 28.909091: good (9.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |    AvgDiagDist > 28.909091
+|   |   |   |   |   |   |   |   |   |   |   |   |    SymmetricFrobeniusNorm <= 10715034845: bad (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    SymmetricFrobeniusNorm > 10715034845: good (2.0)
+|   |   |   |   |   |   |   solver = 85490471: bad (0.0)
+|   |   |   |   |   |   |   solver = 85490470: bad (0.0)
+|   |   |   |   |   |   |   solver = 85490472: bad (0.0)
+|   |   |   |   |   |   |   solver = 18524981
+|   |   |   |   |   |   |   |    lowerBandwidth <= 2: bad (13.0)
+|   |   |   |   |   |   |   |    lowerBandwidth > 2
+|   |   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 61
+|   |   |   |   |   |   |   |   |   |    DiagonalSign <= -2
+|   |   |   |   |   |   |   |   |   |   |    Absolute Error <= 1542.52321: bad (10.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |    Absolute Error > 1542.52321: good (2.0)
+|   |   |   |   |   |   |   |   |   |    DiagonalSign > -2
+|   |   |   |   |   |   |   |   |   |   |    NonZeroPatternSymmetryV1 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |    DiagonalAverage <= 0.593481: bad (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |    DiagonalAverage > 0.593481: good (13.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |    NonZeroPatternSymmetryV1 > 0: good (64.76/6.0)
+|   |   |   |   |   |   |   |   |    MaxNonzerosPerRow > 61
+|   |   |   |   |   |   |   |   |   |    symmetricity <= 0: bad (22.0)
+|   |   |   |   |   |   |   |   |   |    symmetricity > 0: good (5.0)
+|   |   |   |   |   |   |   solver = 37052869
+|   |   |   |   |   |   |   |    DiagonalMean <= 0.075077
+|   |   |   |   |   |   |   |   |    DiagonalSign <= -2
+|   |   |   |   |   |   |   |   |   |    Relative Error for largest Eigen Value <= 0.122059
+|   |   |   |   |   |   |   |   |   |   |    MinNonzerosPerRow <= 3
+|   |   |   |   |   |   |   |   |   |   |   |    NonZeroPatternSymmetryV1 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  <= 991: good (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    DiagonalNonZeros  > 991: bad (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |    NonZeroPatternSymmetryV1 > 0: bad (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |    MinNonzerosPerRow > 3: bad (3.0)
+|   |   |   |   |   |   |   |   |   |    Relative Error for largest Eigen Value > 0.122059: good (4.0)
+|   |   |   |   |   |   |   |   |    DiagonalSign > -2
+|   |   |   |   |   |   |   |   |   |    AvgDiagDist <= 7: bad (2.0)
+|   |   |   |   |   |   |   |   |   |    AvgDiagDist > 7: good (6.0)
+|   |   |   |   |   |   |   |    DiagonalMean > 0.075077
+|   |   |   |   |   |   |   |   |    Smallest eigen value from double power method <= -13990059.26
+|   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method <= -56624201.06: bad (3.0)
+|   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method > -56624201.06: good (2.0)
+|   |   |   |   |   |   |   |   |    Smallest eigen value from double power method > -13990059.26: bad (106.76/2.0)
+|   |   |   |   |   |   |   solver = 37052868
+|   |   |   |   |   |   |   |    DiagonalSign <= -2
+|   |   |   |   |   |   |   |   |    Absolute Error <= 2.52: bad (3.0)
+|   |   |   |   |   |   |   |   |    Absolute Error > 2.52
+|   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method <= -8399.096618: bad (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |    Smallest eigen value from double power method > -8399.096618: good (10.0)
+|   |   |   |   |   |   |   |    DiagonalSign > -2
+|   |   |   |   |   |   |   |   |    symmetricity <= 0
+|   |   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min <= 187312.3866
+|   |   |   |   |   |   |   |   |   |   |    ColumnVariance <= 1.000031
+|   |   |   |   |   |   |   |   |   |   |   |    Symmetric9.99E+300inityNorm <= 29: bad (30.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |    Symmetric9.99E+300inityNorm > 29
+|   |   |   |   |   |   |   |   |   |   |   |   |    Symmetric9.99E+300inityNorm <= 69.404277: good (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |    Symmetric9.99E+300inityNorm > 69.404277: bad (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |    ColumnVariance > 1.000031: bad (11.0)
+|   |   |   |   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min > 187312.3866: good (4.0)
+|   |   |   |   |   |   |   |   |    symmetricity > 0
+|   |   |   |   |   |   |   |   |   |    MinNonzerosPerRow <= 6: bad (49.76)
+|   |   |   |   |   |   |   |   |   |    MinNonzerosPerRow > 6
+|   |   |   |   |   |   |   |   |   |   |    ColumnVariance <= 222279801.4: bad (15.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |    ColumnVariance > 222279801.4: good (2.0)
+|   |   |   |   |    Relative error for smallest Eigen value > 1.188651
+|   |   |   |   |   |    MinNonzerosPerRow <= 2: good (132.0)
+|   |   |   |   |   |    MinNonzerosPerRow > 2: bad (70.87/6.24)
+|   |   |   |    condest(A 1) > 5.72E19
+|   |   |   |   |    Condn No. from lamda_max/lamda_min <= 14137.15201: good (264.0)
+|   |   |   |   |    Condn No. from lamda_max/lamda_min > 14137.15201: bad (66.0/2.0)
+|   |   |    Relative Error for largest Eigen Value > 0.566214
+|   |   |   |    AvgDiagDist <= 32.5: good (396.0)
+|   |   |   |    AvgDiagDist > 32.5: bad (77.0/6.54)
+ lowerBandwidth > 327
+|    DiagonalAverage <= 52154.68872
+|   |    Symmetric9.99E+300inityNorm <= 0.927954
+|   |   |    SymmetricFrobeniusNorm <= 0: good (132.0)
+|   |   |    SymmetricFrobeniusNorm > 0: bad (660.0/24.0)
+|   |    Symmetric9.99E+300inityNorm > 0.927954
+|   |   |    Relative error for condition no. <= 0.999
+|   |   |   |    Relative error for smallest Eigen value <= 0.751293: good (221.89)
+|   |   |   |    Relative error for smallest Eigen value > 0.751293
+|   |   |   |   |    DiagonalAverage <= 0.337976: good (73.96)
+|   |   |   |   |    DiagonalAverage > 0.337976: bad (993.98/40.98)
+|   |   |    Relative error for condition no. > 0.999
+|   |   |   |    DiagonalNonZeros  <= 1923
+|   |   |   |   |    MaxNonzerosPerRow <= 11
+|   |   |   |   |   |    DiagonalNonZeros  <= 257: good (990.0)
+|   |   |   |   |   |    DiagonalNonZeros  > 257: bad (264.0/17.0)
+|   |   |   |   |    MaxNonzerosPerRow > 11
+|   |   |   |   |   |    condest(A 1) <= 31843.90707: bad (66.0/1.0)
+|   |   |   |   |   |    condest(A 1) > 31843.90707
+|   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min <= 22570.99572: good (14492.13)
+|   |   |   |   |   |   |    Condn No. from lamda_max/lamda_min > 22570.99572
+|   |   |   |   |   |   |   |    Relative error for smallest Eigen value <= 0.999787: bad (66.0/2.0)
+|   |   |   |   |   |   |   |    Relative error for smallest Eigen value > 0.999787: good (2042.02)
+|   |   |   |    DiagonalNonZeros  > 1923
+|   |   |   |   |    MaxNonzerosPerRow <= 33
+|   |   |   |   |   |    MinNonzerosPerRow <= 0: good (62.02)
+|   |   |   |   |   |    MinNonzerosPerRow > 0: bad (462.0/21.0)
+|   |   |   |   |    MaxNonzerosPerRow > 33
+|   |   |   |   |   |    lowerBandwidth <= 1297: bad (66.0/2.0)
+|   |   |   |   |   |    lowerBandwidth > 1297
+|   |   |   |   |   |   |    symmetricity <= 0
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow <= 5181: good (1386.0)
+|   |   |   |   |   |   |   |    MaxNonzerosPerRow > 5181
+|   |   |   |   |   |   |   |   |    condest(A 1) <= 1905836694: good (66.0)
+|   |   |   |   |   |   |   |   |    condest(A 1) > 1905836694: bad (66.0/1.0)
+|   |   |   |   |   |   |    symmetricity > 0: bad (66.0/6.0)
+|    DiagonalAverage > 52154.68872: bad (1254.0/52.0)
+
+Number of Leaves  : 	277
+
+Size of the tree : 	401
+
+
+Time taken to build model: 4.73 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       35672               98.27   %
+Incorrectly Classified Instances       628                1.73   %
+Kappa statistic                          0.9633
+Mean absolute error                      0.0265
+Root mean squared error                  0.1274
+Relative absolute error                  5.6515 %
+Root relative squared error             26.3109 %
+Total Number of Instances            36300     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.978     0.01       0.994     0.978     0.986      0.988    good
+                 0.99      0.022      0.965     0.99      0.977      0.988    bad
+Weighted Avg.    0.983     0.015      0.983     0.983     0.983      0.988
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 22164   487 |     a = good
+   141 13508 |     b = bad
+
+
