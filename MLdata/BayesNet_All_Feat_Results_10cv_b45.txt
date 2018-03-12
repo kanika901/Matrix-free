@@ -1,0 +1,137 @@
+=== Run information ===
+
+Scheme:weka.classifiers.bayes.BayesNet -D -Q weka.classifiers.bayes.net.search.local.K2 -- -P 1 -S BAYES -E weka.classifiers.bayes.net.estimate.SimpleEstimator -- -A 0.5
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R43
+Instances:    36300
+Attributes:   44
+               condest(A 1)
+               True Condn no. (condest(A 2))
+               MinNonzerosPerRow
+               Condn No. from lamda_max/lamda_min
+               Smallest eigen value from double power method
+               symmetricity
+               Absolute Error
+               NonZeroPatternSymmetryV1
+               AvgDiagDist
+               SymmetricFrobeniusNorm
+               MaxNonzerosPerRow
+               True largest Eigen Value
+               AntiSymmetric9.99E+300inityNorm
+               True smallest Eigen Value
+               lowerBandwidth
+               Relative error for condition no.
+               Relative error for smallest Eigen value
+               9.99E+300inityNorm
+               AbsoluteTrace
+               AbsoluteNonZeroSum
+               Symmetric?
+               cond(A 2)
+               AntiSymmetricFrobeniusNorm
+               upperBandwidth
+               DiagonalSign
+               ColumnVariance
+               DiagonalMean
+               cond(A 1)
+               Relative Error for largest Eigen Value
+               Eigen Value from Power method
+               Symmetric9.99E+300inityNorm
+               FrobeniusNorm
+               Trace
+               DiagonalAverage
+               DiagonalNonZeros 
+               RowVariance
+               ColDiagonalDomi?ce
+               AvgNonzerosPerRow
+               RowDiagonalDomi?ce
+               Dimension
+               nnz
+               OneNorm
+              solver
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bayes Network Classifier
+not using ADTree
+#attributes=44 #classindex=43
+Network structure (nodes followed by parents)
+ condest(A 1)(155): class 
+ True Condn no. (condest(A 2))(159): class 
+ MinNonzerosPerRow(14): class 
+ Condn No. from lamda_max/lamda_min(189): class 
+ Smallest eigen value from double power method(171): class 
+ symmetricity(2): class 
+ Absolute Error(175): class 
+ NonZeroPatternSymmetryV1(2): class 
+ AvgDiagDist(106): class 
+ SymmetricFrobeniusNorm(151): class 
+ MaxNonzerosPerRow(58): class 
+ True largest Eigen Value(135): class 
+ AntiSymmetric9.99E+300inityNorm(100): class 
+ True smallest Eigen Value(147): class 
+ lowerBandwidth(103): class 
+ Relative error for condition no.(18): class 
+ Relative error for smallest Eigen value(163): class 
+ 9.99E+300inityNorm(173): class 
+ AbsoluteTrace(118): class 
+ AbsoluteNonZeroSum(165): class 
+ Symmetric?(2): class 
+ cond(A 2)(161): class 
+ AntiSymmetricFrobeniusNorm(95): class 
+ upperBandwidth(116): class 
+ DiagonalSign(3): class 
+ ColumnVariance(49): class 
+ DiagonalMean(99): class 
+ cond(A 1)(161): class 
+ Relative Error for largest Eigen Value(175): class 
+ Eigen Value from Power method(158): class 
+ Symmetric9.99E+300inityNorm(141): class 
+ FrobeniusNorm(159): class 
+ Trace(112): class 
+ DiagonalAverage(113): class 
+ DiagonalNonZeros (87): class 
+ RowVariance(49): class 
+ ColDiagonalDomi?ce(2): class 
+ AvgNonzerosPerRow(131): class 
+ RowDiagonalDomi?ce(2): class 
+ Dimension(130): class 
+ nnz(155): class 
+ OneNorm(160): class 
+solver(154): class 
+class(2): 
+LogScore Bayes: -4621017.63071316
+LogScore BDeu: -4683521.783782252
+LogScore MDL: -4675832.97822255
+LogScore ENTROPY: -4626742.224566357
+LogScore AIC: -4636093.224566357
+
+
+Time taken to build model: 1.99 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       35627               98.146  %
+Incorrectly Classified Instances       673                1.854  %
+Kappa statistic                          0.9609
+Mean absolute error                      0.0185
+Root mean squared error                  0.1362
+Relative absolute error                  3.951  %
+Root relative squared error             28.1104 %
+Total Number of Instances            36300     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.97      0          1         0.97      0.985      0.986    good
+                 1         0.03       0.953     1         0.976      0.985    bad
+Weighted Avg.    0.981     0.011      0.982     0.981     0.982      0.986
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 21978   673 |     a = good
+     0 13649 |     b = bad
+
+
