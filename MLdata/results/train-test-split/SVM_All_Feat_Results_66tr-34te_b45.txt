@@ -1,0 +1,84 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.LibSVM -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.0010 -P 0.1 -seed 1
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R43
+Instances:    36300
+Attributes:   44
+               condest(A 1)
+               True Condn no. (condest(A 2))
+               MinNonzerosPerRow
+               Condn No. from lamda_max/lamda_min
+               Smallest eigen value from double power method
+               symmetricity
+               Absolute Error
+               NonZeroPatternSymmetryV1
+               AvgDiagDist
+               SymmetricFrobeniusNorm
+               MaxNonzerosPerRow
+               True largest Eigen Value
+               AntiSymmetric9.99E+300inityNorm
+               True smallest Eigen Value
+               lowerBandwidth
+               Relative error for condition no.
+               Relative error for smallest Eigen value
+               9.99E+300inityNorm
+               AbsoluteTrace
+               AbsoluteNonZeroSum
+               Symmetric?
+               cond(A 2)
+               AntiSymmetricFrobeniusNorm
+               upperBandwidth
+               DiagonalSign
+               ColumnVariance
+               DiagonalMean
+               cond(A 1)
+               Relative Error for largest Eigen Value
+               Eigen Value from Power method
+               Symmetric9.99E+300inityNorm
+               FrobeniusNorm
+               Trace
+               DiagonalAverage
+               DiagonalNonZeros 
+               RowVariance
+               ColDiagonalDomi?ce
+               AvgNonzerosPerRow
+               RowDiagonalDomi?ce
+               Dimension
+               nnz
+               OneNorm
+              solver
+              class
+Test mode:split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+LibSVM wrapper, original code by Yasser EL-Manzalawy (= WLSVM)
+
+Time taken to build model: 3.1 seconds
+
+=== Evaluation on test split ===
+=== Summary ===
+
+Correctly Classified Instances        7743               62.737  %
+Incorrectly Classified Instances      4599               37.263  %
+Kappa statistic                          0     
+Mean absolute error                      0.3726
+Root mean squared error                  0.6104
+Relative absolute error                 79.4759 %
+Root relative squared error            126.2449 %
+Total Number of Instances            12342     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.627     1         0.771      0.5      good
+                 0         0          0         0         0          0.5      bad
+Weighted Avg.    0.627     0.627      0.394     0.627     0.484      0.5  
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 7743    0 |    a = good
+ 4599    0 |    b = bad
+
+

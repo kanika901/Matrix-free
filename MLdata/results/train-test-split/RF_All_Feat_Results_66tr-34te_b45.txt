@@ -1,0 +1,87 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.RandomForest -I 100 -K 0 -S 1
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R43
+Instances:    36300
+Attributes:   44
+               condest(A 1)
+               True Condn no. (condest(A 2))
+               MinNonzerosPerRow
+               Condn No. from lamda_max/lamda_min
+               Smallest eigen value from double power method
+               symmetricity
+               Absolute Error
+               NonZeroPatternSymmetryV1
+               AvgDiagDist
+               SymmetricFrobeniusNorm
+               MaxNonzerosPerRow
+               True largest Eigen Value
+               AntiSymmetric9.99E+300inityNorm
+               True smallest Eigen Value
+               lowerBandwidth
+               Relative error for condition no.
+               Relative error for smallest Eigen value
+               9.99E+300inityNorm
+               AbsoluteTrace
+               AbsoluteNonZeroSum
+               Symmetric?
+               cond(A 2)
+               AntiSymmetricFrobeniusNorm
+               upperBandwidth
+               DiagonalSign
+               ColumnVariance
+               DiagonalMean
+               cond(A 1)
+               Relative Error for largest Eigen Value
+               Eigen Value from Power method
+               Symmetric9.99E+300inityNorm
+               FrobeniusNorm
+               Trace
+               DiagonalAverage
+               DiagonalNonZeros 
+               RowVariance
+               ColDiagonalDomi?ce
+               AvgNonzerosPerRow
+               RowDiagonalDomi?ce
+               Dimension
+               nnz
+               OneNorm
+              solver
+              class
+Test mode:split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+Random forest of 100 trees, each constructed while considering 6 random features.
+Out of bag error: 0.0136
+
+
+
+Time taken to build model: 25.62 seconds
+
+=== Evaluation on test split ===
+=== Summary ===
+
+Correctly Classified Instances       12147               98.42   %
+Incorrectly Classified Instances       195                1.58   %
+Kappa statistic                          0.9665
+Mean absolute error                      0.0315
+Root mean squared error                  0.1077
+Relative absolute error                  6.7215 %
+Root relative squared error             22.2828 %
+Total Number of Instances            12342     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.976     0.002      0.999     0.976     0.987      0.998    good
+                 0.998     0.024      0.961     0.998     0.979      0.998    bad
+Weighted Avg.    0.984     0.01       0.985     0.984     0.984      0.998
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 7557  186 |    a = good
+    9 4590 |    b = bad
+
+

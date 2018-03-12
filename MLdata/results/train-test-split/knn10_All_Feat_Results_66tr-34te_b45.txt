@@ -1,0 +1,86 @@
+=== Run information ===
+
+Scheme:weka.classifiers.lazy.IBk -K 10 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R43
+Instances:    36300
+Attributes:   44
+               condest(A 1)
+               True Condn no. (condest(A 2))
+               MinNonzerosPerRow
+               Condn No. from lamda_max/lamda_min
+               Smallest eigen value from double power method
+               symmetricity
+               Absolute Error
+               NonZeroPatternSymmetryV1
+               AvgDiagDist
+               SymmetricFrobeniusNorm
+               MaxNonzerosPerRow
+               True largest Eigen Value
+               AntiSymmetric9.99E+300inityNorm
+               True smallest Eigen Value
+               lowerBandwidth
+               Relative error for condition no.
+               Relative error for smallest Eigen value
+               9.99E+300inityNorm
+               AbsoluteTrace
+               AbsoluteNonZeroSum
+               Symmetric?
+               cond(A 2)
+               AntiSymmetricFrobeniusNorm
+               upperBandwidth
+               DiagonalSign
+               ColumnVariance
+               DiagonalMean
+               cond(A 1)
+               Relative Error for largest Eigen Value
+               Eigen Value from Power method
+               Symmetric9.99E+300inityNorm
+               FrobeniusNorm
+               Trace
+               DiagonalAverage
+               DiagonalNonZeros 
+               RowVariance
+               ColDiagonalDomi?ce
+               AvgNonzerosPerRow
+               RowDiagonalDomi?ce
+               Dimension
+               nnz
+               OneNorm
+              solver
+              class
+Test mode:split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 10 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.01 seconds
+
+=== Evaluation on test split ===
+=== Summary ===
+
+Correctly Classified Instances       11231               90.9982 %
+Incorrectly Classified Instances      1111                9.0018 %
+Kappa statistic                          0.8053
+Mean absolute error                      0.125 
+Root mean squared error                  0.2615
+Relative absolute error                 26.6613 %
+Root relative squared error             54.0825 %
+Total Number of Instances            12342     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.945     0.149      0.915     0.945     0.929      0.96     good
+                 0.851     0.055      0.902     0.851     0.876      0.96     bad
+Weighted Avg.    0.91      0.114      0.91      0.91      0.909      0.96 
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 7316  427 |    a = good
+  684 3915 |    b = bad
+
+
