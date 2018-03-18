@@ -4,8 +4,7 @@ Created on Feb 17, 2015
 @author: norris
 Modified by KS on April 17, 2017 for petsc features for the arff.
 To run on arya: python ../scripts/petsc2arff.py -T  /home/users/kanikas/research/lighthouse/sandbox/matrix_properties/uflorida-features+ex19.csv -p /home/users/norris/UFloridaSparseMat/timing-arya72 -t -e -b 75 -n petsc_petsc_arya_p72
-python mfree2arff.py -T /home/users/kanikas/research/combined_structural_eigen.csv -p /home/users/norris/UFloridaSparseMat/timing-arya72 -t -e -b 45 -n mfree_UF_arya_p72
-
+python mfree2arff.py -T combined_structural_eigen_final.csv -p /home/users/norris/UFloridaSparseMat/timing-arya72 -e -b 45 -n mfree_UF_arya_p72_final
 '''
 
 
@@ -58,7 +57,7 @@ def readFeatures(dirname='anamod_features'):
     #print feature_times
     return features, feature_times
 
-def readFeaturesPETSc(path='combined_structural_eigen.csv'):
+def readFeaturesPETSc(path='combined_structural_eigen_final.csv'):
     fd = open(path,'r')
     lines = fd.readlines()
     fd.close()
@@ -76,7 +75,7 @@ def readFeaturesPETSc(path='combined_structural_eigen.csv'):
         features[matrixname] = dict()
         i = 0
         for c in contents[1:]:
-            features[matrixname][featurenames[i]] = c.replace('unconverged','?').replace('-nan','?') 
+            features[matrixname][featurenames[i]] = c.replace('unconverged','?').replace('-nan','?').replace('inf'," 'Inf' ").replace('Inf'," 'Inf' ").replace('NaN',"?")
             i += 1
 
     #print featurenames    
@@ -269,7 +268,7 @@ def convertToARFF(features,perfdata,besttol,fairtol=0,solvers={}, solversamples=
         buf += '@ATTRIBUTE solver {%s}\n' % (','.join(['"'+x+'"' for x in solvers.keys()]))
         csvbuf += ', solver'
     if extrainfo:
-	#buf += '@ATTRIBUTE Matrix Name\n'
+	buf += '@ATTRIBUTE Matrix_name {%s}\n' % (','.join(['"'+x+'"' for x in features.keys()]))
         csvbuf += ', solver_name, prec_name, matrix_name'
     if fairtol > 0:
         buf += '@ATTRIBUTE class {good,fair,bad}'
@@ -331,8 +330,8 @@ def convertToARFF(features,perfdata,besttol,fairtol=0,solvers={}, solversamples=
                 csvbuf += str(perfdata[matrixname][solverID][0]) + ', '
                 csvbuf += str(perfdata[matrixname][solverID][1]) + ', '
                 csvbuf += matrixname + ', '
-
-                #buf += matrixname + ', '
+		
+                buf += matrixname + ', '
             buf += label + '\n'
             csvbuf += label + '\n'
         
