@@ -9,10 +9,10 @@ Note: The matrix name should be the first column of both the input csv files
 
 import csv 
 
-filename1 = '/Users/kanikas/Documents/MatrixFree/Matrix-free/StucturalProperties/struct_properties_all_matr_final_v3.csv'
+filename1 = '/Users/kanikas/Documents/MatrixFree/Matrix-free/StructuralProperties/struct_properties_all_matr_final_v5.csv'
 filename2 = '/Users/kanikas/Documents/MatrixFree/Matrix-free/ConditionNo/eig_vals_cond_num_iter4_rel_err_all_matr_final_v2.csv'
 
-outfile = open('/Users/kanikas/Documents/MatrixFree/Matrix-free/combined_structural_eigen.csv', 'w+')
+outfile = open('/Users/kanikas/Documents/MatrixFree/Matrix-free/combined_structural_eigen_final.csv', 'w+')
 out_writer = csv.writer(outfile)
 
 infile1 = open(filename1, 'r')
