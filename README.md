@@ -37,5 +37,10 @@ Note: Never use timing for classification training and testing. This column shou
 Files used for collecting results are available in directory: MLdata/filesUsedForResults
 
 5.1 Do classification for full feature set
-Relevant feature selection
-5.2 Do classification for reduced feature sets
+
+5.2 Relevant feature selection
+Script: bdt_analysis.m
+This script requires class to be first column and solver to be the second column.
+5.3 Do classification for reduced feature sets
+
+
