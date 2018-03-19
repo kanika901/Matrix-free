@@ -1,0 +1,50 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.LibSVM -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.0010 -P 0.1 -seed 1
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R9,12,14,23,26,28,30-weka.filters.unsupervised.attribute.Remove-R3-4,6-8,11-13,16-18,21-24-weka.filters.unsupervised.attribute.Remove-R11-weka.filters.unsupervised.attribute.Remove-R2
+Instances:    36366
+Attributes:   10
+               MinNonzerosPerRow
+               NonZeroPatternSymmetryV1
+               lowerBandwidth
+               InfinityNorm
+               ColumnVariance
+               DiagonalMean
+              DiagonalNonZeros 
+               DiagonalAverage
+              solver
+              class
+Test mode:split 66.0% train, remainder test
+
+=== Classifier model (full training set) ===
+
+LibSVM wrapper, original code by Yasser EL-Manzalawy (= WLSVM)
+
+Time taken to build model: 102.84 seconds
+
+=== Evaluation on test split ===
+=== Summary ===
+
+Correctly Classified Instances       12105               97.9052 %
+Incorrectly Classified Instances       259                2.0948 %
+Kappa statistic                          0.9554
+Mean absolute error                      0.0209
+Root mean squared error                  0.1447
+Relative absolute error                  4.4726 %
+Root relative squared error             29.9658 %
+Total Number of Instances            12364     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.973     0.01       0.994     0.973     0.983      0.981    good
+                 0.99      0.027      0.955     0.99      0.972      0.981    bad
+Weighted Avg.    0.979     0.016      0.98      0.979     0.979      0.981
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 7569  214 |    a = good
+   45 4536 |    b = bad
+
+
