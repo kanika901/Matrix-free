@@ -1,13 +1,13 @@
+bdt_analysis_ranking()
+
 % Code taken from https://github.com/mscastillo/FSE/blob/master/BDT_analysis/bdt_analysis.m    
+function bdt_analysis_ranking() 
 
-function bdt_analysis() %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%% Workspace initialization
+% Workspace initialization
 %  The workspace is cleaned and some parameters and deffined
-clear all ; % this removes all variables stored in your current workspace
 
-% PARAMETERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PARAMETERS 
 % 
 % The next parameters are choosen to produce an optimal solution. I would
 % recommend not to modify them, but they could be changed by the user to
@@ -26,10 +26,9 @@ clear all ; % this removes all variables stored in your current workspace
 %     seed = 0 ;
       seed = 0 ;
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-close all force ; % this closes all plotted figures
-clc ; % this clears the command window log
+%close all force ; % this closes all plotted figures
+%clc ; % this clears the command window log
 rng(seed) ; % random seed is set here
 
 disp( ['==============================================='] ) ;
@@ -37,7 +36,7 @@ disp( ['= Classification using Bagged Decission Trees ='] ) ;
 disp( ['==============================================='] ) ; disp( char(10) ) ;
 
 
-%% Loading and examinating the data
+% Loading and examinating the data
 %  Data are read from an Excel or CSV file (genes at columns and samples at rows)
 %  which must have the next structure:
 %  - First column: the name of the class (cell-type, treatment, stage, etc)
@@ -45,8 +44,12 @@ disp( ['==============================================='] ) ; disp( char(10) ) ;
 %  - First row: a header with the name of the genes at each column. Notice
 %  that the first two cells of the header corresponds to the sample's
 %  class and samples's name.
+cd '/Users/kanikas/Documents/MatrixFree/Matrix-free/BDT'
 tic ;  disp( [' - Loading data...'] ) ; disp( char(10) ) ;
-[ input_file,input_path ] = uigetfile( {'*.csv','Comma Sparated Values (*.csv)';'*.xls','Excel 97-2003 (*.xls)';'*.xlsx','Excel 2010 (*.xlsx)'},'MultiSelect','off' ) ;
+input_file = 'All_mfree_UF_arya_p72_45.csv';
+input_path = '/Volumes/Kank/MatrixFree/BDT/'
+%input_path = '/Users/kanikas/Documents/MatrixFree/Matrix-free/BDT/';
+%[ input_file,input_path ] = uigetfile( {'*.csv','Comma Sparated Values (*.csv)';'*.xls','Excel 97-2003 (*.xls)';'*.xlsx','Excel 2010 (*.xlsx)'},'MultiSelect','off' ) ;
 [ vector ] = strsplit( input_file,'.' ) ;
 file_name = vector(1) ;
 extension = vector(2) ;
@@ -104,7 +107,7 @@ classes_matrix = zeros(N,N) ;
 fprintf('   dataset with %i samples, %i genes and %i unique classes.',N,G,K ) ; disp( char(10) ) ;
 
 
-%% Building the model
+% Building the model
 %  The Bagged Decission Tree builds an ensemble with a fixed Number Of
 %  Deicission Trees (NODT). The ensemble is generated for the whole dataset and the Out-Of-Bag (OOB)
 %  infromation is stored for evaluation purposes.
@@ -113,7 +116,7 @@ dbt = TreeBagger( NoDT,data,classes_names,'names',genes,'method','classification
 fprintf('   ( +%0.2f s ) done!',toc) ; disp( char(10) ) ;
 
 
-%% Biased evaluation of the model
+% Biased evaluation of the model
 %  This is a first test of the model, consisting of the prediction the
 %  classes of the same dataset used for the trainning. This is a biased
 %  evaluation that is not significant.
@@ -160,7 +163,7 @@ set(gca,'XTick',[1:K]) ;
 set(gca,'XTickLabel',cm_labels) ;
 
 
-%% Evaluating the model with the OOB samples
+% Evaluating the model with the OOB samples
 %  This evaluation takes into account the out-of-bag (OOB) samples, that
 %  have been not considered to build the model.
 [ predicted_classes predicted_scores ] = oobPredict( dbt ) ;
@@ -199,7 +202,7 @@ set(gca,'XTick',[1:K]) ;
 set(gca,'XTickLabel',cm_labels) ;
 
 
-%% Examining the errors of the individual models
+% Examining the errors of the individual models
 %  To test the model objectively we use the OOB error (its missclasication
 %  probability) and its margin (the difference between the score for the
 %  actual class and the largest one for other classes) for each
@@ -235,7 +238,7 @@ title( 'Mean of the margin for the OOB samples using an incremental ensembling.'
 legend( {'Individual';'Cumulative';'Steady level'},'EdgeColor',[1 1 1],'Location','NE','Orientation','horizontal' ) ;
 
 
-%% Examining the correlation among the predicted classes
+% Examining the correlation among the predicted classes
 %  The proximitry matrix is defined as the fraction of trees in the ensemble
 %  for which any two observations land on the same leaf.
 dbt = fillProximities( dbt ) ;
@@ -245,7 +248,7 @@ hold off ;
 title('Proximity matrix.') ;
 
 
-%% Examining the confidence of the invidual variables
+% Examining the confidence of the invidual variables
 %  The relevance of each gene on the emsenble may be computed as the
 %  predictor importance. The predictor importance averages the changes in
 %  the risk due to split on every predictor at each node for the whole
@@ -266,7 +269,7 @@ set( gca,'XTick',[1:G] ) ;
 set( gca,'XTickLabel',genes(sorted_improvement_keys) ) ;
 
 
-%% Examining the errors of the individual variables
+% Examining the errors of the individual variables
 %  Alternaitvely, the relevance of each variable may be computed by
 %  "OOBPermutedVarDeltaError". This variable measures the increase in the
 %  OOB prediction error if the values of that variables are permutted for
@@ -286,7 +289,7 @@ set(gca,'XTick',[1:G]) ;
 set(gca,'XTickLabel',genes(sorted_error_keys)) ;
 
 
-%% Plotting the performance curves
+% Plotting the performance curves
 figure(6) ; set(6,'WindowStyle','docked') ; cla ;
 text_legend = [] ;
 hold on ;
@@ -318,7 +321,7 @@ xlabel( 'Recall (TPR)' ) ; xlim([0 1]) ;
 ylabel( 'Precission (PPV)' ) ; ylim([0 1]) ;
 
 
-%% Plotting the tree and loading super cells
+% Plotting the tree and loading super cells
 % Plotting the embedded tree
 view(dbt.Trees{:},'mode','graph')
 % Tracking a subset of cells along the tree
@@ -398,7 +401,7 @@ set(8,'WindowStyle','docked') ;
 
 % http://stackoverflow.com/questions/5065051/add-node-numbers-get-node-locations-from-matlabs-treeplot
 
-end%function %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+end%function 
 
 
 function [ tree , family , splitting_variables , splitting_values ] = growtree( dm,embedded,node,leave,parents,tree,family,splitting_variables,splitting_values )
