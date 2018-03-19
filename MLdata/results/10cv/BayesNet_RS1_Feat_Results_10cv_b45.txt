@@ -1,0 +1,69 @@
+un information ===
+
+Scheme:weka.classifiers.bayes.BayesNet -D -Q weka.classifiers.bayes.net.search.local.K2 -- -P 1 -S BAYES -E weka.classifiers.bayes.net.estimate.SimpleEstimator -- -A 0.5
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R9,12,14,23,26,28,30-weka.filters.unsupervised.attribute.Remove-R3-4,6-8,11-13,16-18,21-24-weka.filters.unsupervised.attribute.Remove-R11-weka.filters.unsupervised.attribute.Remove-R2
+Instances:    36366
+Attributes:   10
+               MinNonzerosPerRow
+               NonZeroPatternSymmetryV1
+               lowerBandwidth
+               InfinityNorm
+               ColumnVariance
+               DiagonalMean
+              DiagonalNonZeros 
+               DiagonalAverage
+              solver
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Bayes Network Classifier
+not using ADTree
+#attributes=10 #classindex=9
+Network structure (nodes followed by parents)
+ MinNonzerosPerRow(14): class 
+ NonZeroPatternSymmetryV1(2): class 
+ lowerBandwidth(103): class 
+ InfinityNorm(173): class 
+ ColumnVariance(131): class 
+ DiagonalMean(99): class 
+DiagonalNonZeros (87): class 
+ DiagonalAverage(115): class 
+solver(154): class 
+class(2): 
+LogScore Bayes: -946380.8234721788
+LogScore BDeu: -957709.2884353145
+LogScore MDL: -956520.1217685663
+LogScore ENTROPY: -947389.1635538158
+LogScore AIC: -949128.1635538158
+
+
+Time taken to build model: 0.22 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       35669               98.0834 %
+Incorrectly Classified Instances       697                1.9166 %
+Kappa statistic                          0.9595
+Mean absolute error                      0.0195
+Root mean squared error                  0.1373
+Relative absolute error                  4.1607 %
+Root relative squared error             28.3529 %
+Total Number of Instances            36366     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.971     0.002      0.999     0.971     0.984      0.987    good
+                 0.998     0.029      0.953     0.998     0.975      0.987    bad
+Weighted Avg.    0.981     0.012      0.982     0.981     0.981      0.987
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 22048   669 |     a = good
+    28 13621 |     b = bad
+
+

@@ -1,0 +1,52 @@
+un information ===
+
+Scheme:weka.classifiers.lazy.IBk -K 10 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R9,12,14,23,26,28,30-weka.filters.unsupervised.attribute.Remove-R3-4,6-8,11-13,16-18,21-24-weka.filters.unsupervised.attribute.Remove-R11-weka.filters.unsupervised.attribute.Remove-R2
+Instances:    36366
+Attributes:   10
+               MinNonzerosPerRow
+               NonZeroPatternSymmetryV1
+               lowerBandwidth
+               InfinityNorm
+               ColumnVariance
+               DiagonalMean
+              DiagonalNonZeros 
+               DiagonalAverage
+              solver
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 10 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       31849               87.5791 %
+Incorrectly Classified Instances      4517               12.4209 %
+Kappa statistic                          0.7339
+Mean absolute error                      0.1543
+Root mean squared error                  0.3105
+Relative absolute error                 32.9039 %
+Root relative squared error             64.1312 %
+Total Number of Instances            36366     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.908     0.177      0.895     0.908     0.901      0.931    good
+                 0.823     0.092      0.843     0.823     0.833      0.931    bad
+Weighted Avg.    0.876     0.145      0.875     0.876     0.875      0.931
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 20618  2099 |     a = good
+  2418 11231 |     b = bad
+
+
