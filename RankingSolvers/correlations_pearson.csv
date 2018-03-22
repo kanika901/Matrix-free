@@ -1,0 +1,46 @@
+,PCC,p-value
+ ColumnVariance <->  DiagonalAverage,0.0007202267949217189,0.8907607731176483
+ ColumnVariance <->  DiagonalMean,0.004358206646283768,0.40592855769089486
+ ColumnVariance <-> DiagonalNonZeros ,0.018273139043735454,0.0004924400654411184
+ ColumnVariance <-> class,-0.049695392633083,2.4854706806890157e-21
+ ColumnVariance <-> solver,-1.4538873899023916e-18,1.0
+ DiagonalAverage <-> class,-0.049852628064732,1.86277899400176e-21
+ DiagonalAverage <-> solver,-4.876601494791802e-19,1.0
+ DiagonalMean <->  DiagonalAverage,-0.999985019342036,0.0
+ DiagonalMean <-> DiagonalNonZeros ,0.02138078549016385,4.550017429776606e-05
+ DiagonalMean <-> class,0.04949335510280057,3.5956055367021014e-21
+ DiagonalMean <-> solver,-3.2543018685865018e-19,1.0
+ InfinityNorm <->  ColumnVariance,-0.000813321453496806,0.8767471723390392
+ InfinityNorm <->  DiagonalAverage,0.999998671654392,0.0
+ InfinityNorm <->  DiagonalMean,-0.9999926040451267,0.0
+ InfinityNorm <-> DiagonalNonZeros ,-0.02133928260784196,4.70742674433601e-05
+ InfinityNorm <-> class,-0.049748760960881724,2.253934333488664e-21
+ InfinityNorm <-> solver,5.553861598210663e-19,1.0
+ NonZeroPatternSymmetryV1 <->  ColumnVariance,0.057411762812838975,6.149726326813236e-28
+ NonZeroPatternSymmetryV1 <->  DiagonalAverage,-0.0314762828863797,1.927902637067633e-09
+ NonZeroPatternSymmetryV1 <->  DiagonalMean,0.03189038463254991,1.1810653591148609e-09
+ NonZeroPatternSymmetryV1 <->  InfinityNorm,-0.03159687000744307,1.6725835502031422e-09
+ NonZeroPatternSymmetryV1 <->  lowerBandwidth,-0.07779967389103258,6.145480278228879e-50
+ NonZeroPatternSymmetryV1 <-> DiagonalNonZeros ,0.021266135108036103,4.99750021261222e-05
+ NonZeroPatternSymmetryV1 <-> class,-0.5129217550384136,0.0
+ NonZeroPatternSymmetryV1 <-> solver,1.0347577225111563e-18,1.0
+ lowerBandwidth <->  ColumnVariance,-0.014789286131031337,0.004797052508745246
+ lowerBandwidth <->  DiagonalAverage,-0.021444730411275145,4.3172253775161305e-05
+ lowerBandwidth <->  DiagonalMean,0.021324025888733996,4.7665786737458965e-05
+ lowerBandwidth <->  InfinityNorm,-0.021410124960274637,4.441766360246848e-05
+ lowerBandwidth <-> DiagonalNonZeros ,0.5731141437502902,0.0
+ lowerBandwidth <-> class,0.19191481221213982,1.034063011353431e-298
+ lowerBandwidth <-> solver,2.441656895353082e-19,1.0
+DiagonalNonZeros  <->  DiagonalAverage,-0.02132400829157005,4.7666473049205e-05
+DiagonalNonZeros  <-> class,-0.07629568579859594,4.3443390098552714e-48
+DiagonalNonZeros  <-> solver,-1.8378801715894937e-18,1.0
+MinNonzerosPerRow <->  ColumnVariance,-0.006964172449618547,0.18416846343689455
+MinNonzerosPerRow <->  DiagonalAverage,0.00980003631939691,0.061645778064472016
+MinNonzerosPerRow <->  DiagonalMean,-0.009850829198997449,0.060309862151869946
+MinNonzerosPerRow <->  InfinityNorm,0.009816358615345631,0.06121383562533204
+MinNonzerosPerRow <->  NonZeroPatternSymmetryV1,0.30852764913919417,0.0
+MinNonzerosPerRow <->  lowerBandwidth,-0.09002988563132173,2.524144128204836e-66
+MinNonzerosPerRow <-> DiagonalNonZeros ,-0.05797807024841593,1.849021266830763e-28
+MinNonzerosPerRow <-> class,-0.20262393908366783,0.0
+MinNonzerosPerRow <-> solver,-4.261826225428054e-18,1.0
+solver <-> class,0.007195957193525847,0.1699917285537049

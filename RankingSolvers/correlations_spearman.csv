@@ -1,0 +1,46 @@
+,PCC,p-value
+ ColumnVariance <->  DiagonalAverage,0.6418299791712744,0.0
+ ColumnVariance <->  DiagonalMean,0.4460297961127398,0.0
+ ColumnVariance <-> DiagonalNonZeros ,-0.31940147200497826,0.0
+ ColumnVariance <-> class,-0.31308002510170524,0.0
+ ColumnVariance <-> solver,0.0,1.0
+ DiagonalAverage <-> class,-0.45529780454642865,0.0
+ DiagonalAverage <-> solver,0.0,1.0
+ DiagonalMean <->  DiagonalAverage,0.6985603369096578,0.0
+ DiagonalMean <-> DiagonalNonZeros ,0.20522371723003274,0.0
+ DiagonalMean <-> class,-0.30049436673128166,0.0
+ DiagonalMean <-> solver,0.0,1.0
+ InfinityNorm <->  ColumnVariance,0.7283804816596016,0.0
+ InfinityNorm <->  DiagonalAverage,0.7046859678192727,0.0
+ InfinityNorm <->  DiagonalMean,0.4254473032751706,0.0
+ InfinityNorm <-> DiagonalNonZeros ,-0.11430719441040633,5.104837245699566e-106
+ InfinityNorm <-> class,-0.14076737277282164,2.7031045280572428e-160
+ InfinityNorm <-> solver,0.0,1.0
+ NonZeroPatternSymmetryV1 <->  ColumnVariance,0.23456532473300087,0.0
+ NonZeroPatternSymmetryV1 <->  DiagonalAverage,0.12969358374208387,3.6175950381598636e-136
+ NonZeroPatternSymmetryV1 <->  DiagonalMean,0.1820562482362071,1.6044826811305407e-268
+ NonZeroPatternSymmetryV1 <->  InfinityNorm,0.04341291906953969,1.2070930260736453e-16
+ NonZeroPatternSymmetryV1 <->  lowerBandwidth,-0.299296574437491,0.0
+ NonZeroPatternSymmetryV1 <-> DiagonalNonZeros ,-0.023695747825092504,6.20655804953943e-06
+ NonZeroPatternSymmetryV1 <-> class,-0.5129217550384138,0.0
+ NonZeroPatternSymmetryV1 <-> solver,0.0,1.0
+ lowerBandwidth <->  ColumnVariance,-0.43199394331481195,0.0
+ lowerBandwidth <->  DiagonalAverage,-0.44405408574920496,0.0
+ lowerBandwidth <->  DiagonalMean,-0.3447049197538739,0.0
+ lowerBandwidth <->  InfinityNorm,-0.16502898211756845,2.3304805395449845e-220
+ lowerBandwidth <-> DiagonalNonZeros ,0.20953673869000183,0.0
+ lowerBandwidth <-> class,0.4898924143455899,0.0
+ lowerBandwidth <-> solver,0.0,1.0
+DiagonalNonZeros  <->  DiagonalAverage,0.2120406594257178,0.0
+DiagonalNonZeros  <-> class,-0.2219789741743645,0.0
+DiagonalNonZeros  <-> solver,0.0,1.0
+MinNonzerosPerRow <->  ColumnVariance,0.27425916719419974,0.0
+MinNonzerosPerRow <->  DiagonalAverage,0.15525778741401952,5.718184271835301e-195
+MinNonzerosPerRow <->  DiagonalMean,0.09909609247854168,4.997370974089885e-80
+MinNonzerosPerRow <->  InfinityNorm,0.05275536833868786,7.726436720535797e-24
+MinNonzerosPerRow <->  NonZeroPatternSymmetryV1,0.541227417863153,0.0
+MinNonzerosPerRow <->  lowerBandwidth,-0.2936202740356192,0.0
+MinNonzerosPerRow <-> DiagonalNonZeros ,-0.07221703718449057,2.959053062793481e-43
+MinNonzerosPerRow <-> class,-0.5158514041975975,0.0
+MinNonzerosPerRow <-> solver,0.0,1.0
+solver <-> class,0.004410477460182823,0.40032128825317437
