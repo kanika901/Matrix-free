@@ -5,13 +5,16 @@
 
 cd '/Volumes/Kank/MatrixFree'
 file_location = '/Volumes/Kank/MatrixFree/TestMatrices';
+%out_file = fopen('/Volumes/Kank/MatrixFree/RS1test_set2.csv','a') ;
+%cd '/Users/kanikas/Documents/MatrixFree/Matrix-free'
+%file_location = '/Users/kanikas/Documents/MatrixFree/Matrix-free/TestMatrices';
 
 all_files = dir(file_location);
 all_names = { all_files.name };
 global in_file;
 
 out_file = fopen('/Volumes/Kank/MatrixFree/RS1test_set2.csv','a') ;
-fprintf(out_file,'Matrix name, MinNonzerosPerRow, NonZeroPatternSymmetryV1, lowerBandwidth, InfinityNorm, ColumnVariance, DiagonalNonZeros, DiagonalAverage \n');
+fprintf(out_file,'Matrix name, MinNonzerosPerRow, NonZeroPatternSymmetryV1, InfinityNorm, ColumnVariance, ColumnVarianceNonZeros, lowerBandwidth, DiagonalNonZeros, DiagonalAverage \n');
 
 for j = 4: length(all_names)
     in_file = strcat(file_location,'/', all_files(j).name);
@@ -39,14 +42,19 @@ for j = 4: length(all_names)
     sprintf('Infinity Norm: %d', full(inf_norm))
 
     % 4. ColumnVariance
-    out = var(A.').';
-    [out_rows, out_cols] = size(out);
+    [out_rows, out_cols] = size(A);
+    col_variance = 0;
     for i = 1: out_cols
-            col_variance = out(i) + i;
+    	col_variance = col_variance + var(A(:,i));
     end
     col_variance = col_variance / out_cols;
-    sprintf('Column variance %d', col_variance)
-
+    sprintf('Average Column variance: %d\n ', col_variance)
+    
+	% Another way to do it: just variance of the nonzeros. faster.
+	col_variance_nonzeros = sum(arrayfun(@(n) var(nonzeros(A(:,n))), 1:size(A,2)));    
+    col_variance_nonzeros = col_variance_nonzeros / out_cols;
+    sprintf('Average Column variance of the non zeros: %d\n', col_variance_nonzeros)
+     
     % 5. lowerBandwidth
     lower_bw = bandwidth(A, 'lower');
     sprintf('Lower bandwidth %d', lower_bw) 
@@ -62,5 +70,5 @@ for j = 4: length(all_names)
     diag_avg = mean(abs(diag(A)));
     sprintf('Diagonal average: %d', full(diag_avg))
     
-    fprintf(out_file, '%s, %f, %f, %f, %f, %f, %f, %f \n', mat_name, min_non_zeros_per_row, non_zero_pattern_symmetryV1, lower_bw, full(inf_norm),col_variance, nnz_diag, full(diag_avg) );
+    fprintf(out_file, '%s, %f, %f, %f, %f, %f, %f, %f, %f \n', mat_name, min_non_zeros_per_row, non_zero_pattern_symmetryV1, full(inf_norm), col_variance, col_variance_nonzeros, lower_bw, nnz_diag, full(diag_avg) );
 end

@@ -9,19 +9,18 @@
 %A = load('/Users/kanikas/Documents/DONE/d_ss.mat');
 %A = load('/Users/kanikas/Documents/DONE/hydr1.mat');
 
-cd '/Users/kanikas/Documents/DONE'
-file_location = '/Users/kanikas/Documents/DONE';
-%cd '/Volumes/Kank/MatrixFree/DONE';
-%file_location = '/Volumes/Kank/MatrixFree/DONE';
+% cd '/Users/kanikas/Documents/DONE'
+% file_location = '/Users/kanikas/Documents/DONE';
+cd '/Volumes/Kank/MatrixFree/DONE';
+file_location = '/Volumes/Kank/MatrixFree/DONE';
 
 all_files = dir(file_location);
 all_names = { all_files.name };
 global in_file;
 
-out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/StructuralProperties/struct_properties_all_matr_final_v5.csv','a') ;
-
-%out_file = fopen('/Volumes/Kank/MatrixFree/struct_properties_all_matr_final_v3.csv','a') ;
-fprintf(out_file,'Matrix name, Dimension, nnz, MaxNonzerosPerRow, MinNonzerosPerRow, AvgNonzerosPerRow, AbsoluteNonZeroSum, symmetricity, AvgDiagDist, NonZeroPatternSymmetryV1, Trace, AbsoluteTrace, OneNorm, InfinityNorm, FrobeniusNorm, SymmetricInfinityNorm, SymmetricFrobeniusNorm, AntiSymmetricInfinityNorm, AntiSymmetricFrobeniusNorm, DiagonalAverage, RowDiagonalDominance, ColDiagonalDominance, RowVariance, ColumnVariance, lowerBandwidth, upperBandwidth, DiagonalMean, DiagonalSign, DiagonalNonZeros \n');
+%out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/StructuralProperties/struct_properties_all_matr_final_v5.csv','a') ;
+out_file = fopen('/Volumes/Kank/MatrixFree/struct_properties_all_matr_final_v4.csv','a') ;
+fprintf(out_file,'Matrix name, Dimension, nnz, MaxNonzerosPerRow, MinNonzerosPerRow, AvgNonzerosPerRow, AbsoluteNonZeroSum, symmetricity, AvgDiagDist, NonZeroPatternSymmetryV1, Trace, AbsoluteTrace, OneNorm, InfinityNorm, FrobeniusNorm, SymmetricInfinityNorm, SymmetricFrobeniusNorm, AntiSymmetricInfinityNorm, AntiSymmetricFrobeniusNorm, DiagonalAverage, RowDiagonalDominance, ColDiagonalDominance, RowVariance, RowVarianceNonZeros, ColumnVariance, ColVarianceNonZeros, lowerBandwidth, upperBandwidth, DiagonalSign, DiagonalNonZeros \n');
 
 
 for j = 4: length(all_names)
@@ -144,22 +143,34 @@ for j = 4: length(all_names)
 
     % 22. RowVariance
     % computes the row variance of a matrix
-    out = var(A.').';
-    [out_rows, out_cols] = size(out);
+    %out = var(A.').';
+    row_variance = 0;
+    [out_rows, out_cols] = size(A);
     for i = 1: out_rows
-            row_variance = out(i) + i;
+            row_variance = row_variance + var(A(i,:));
     end
 
     row_variance = row_variance / out_rows;
     sprintf('Row variance %d', row_variance);
+    
+    % Another way to do it: just variance of the nonzeros. faster.
+    row_variance_nonzeros = sum(arrayfun(@(n) var(nonzeros(A(n,:))), 1:size(A,1)));
+    row_variance_nonzeros = row_variance_nonzeros / out_cols;
+    sprintf('Average row variance of the non zeros: %d', row_variance_nonzeros);
 
     % 23. ColumnVariance
+    [out_rows, out_cols] = size(A);
+    col_variance = 0;
     for i = 1: out_cols
-            col_variance = out(i) + i;
+    	col_variance = col_variance + var(A(:,i));
     end
-
     col_variance = col_variance / out_cols;
-    sprintf('Column variance %d', col_variance);
+    sprintf('Average Column variance: %d', col_variance);
+    
+	% Another way to do it: just variance of the nonzeros. faster.
+	col_variance_nonzeros = sum(arrayfun(@(n) var(nonzeros(A(:,n))), 1:size(A,2)));    
+    col_variance_nonzeros = col_variance_nonzeros / out_cols;
+    sprintf('Average Column variance of the non zeros: %d', col_variance_nonzeros)
 
     % 24. lowerBandwidth
     lower_bw = bandwidth(A, 'lower');
@@ -170,25 +181,26 @@ for j = 4: length(all_names)
     upper_bw = bandwidth(A, 'upper');
     sprintf('Upper bandwidth %d', upper_bw);
 
-    % 26. DiagonalMean
-    D = diag(A);
-    [diag_rows, c] = size(D);
-    diag_mean = 0.0;
-    zero_count = 0;
-
-    for i = 1:diag_rows
-        diag_mean = diag_mean +  D(i);
-        if D(i) == 0
-            zero_count = zero_count + 1;
-        end
-    end
-    diag_mean = diag_mean / diag_rows;
-    sprintf('Diagonal mean: %d ', diag_mean);    
+%     % 26. DiagonalMean
+%     D = diag(A);
+%     [diag_rows, c] = size(D);
+%     diag_mean = 0.0;
+%     zero_count = 0;
+% 
+%     for i = 1:diag_rows
+%         diag_mean = diag_mean +  D(i);
+%         if D(i) == 0
+%             zero_count = zero_count + 1;
+%         end
+%     end
+%     diag_mean = diag_mean / diag_rows;
+%     sprintf('Diagonal mean: %d ', diag_mean);    
 
     % 27. DiagonalSign
     %// indicates the diagonal sign pattern
     %// -2 all negative, -1 nonpositive, 0 all zero, 1 nonnegative, 2 all positive, 
     %// 3 some negative,some or no zero,some positive
+    D = diag(A);
     if all(D(:) == 0)== 1 % all elements are zero
         diag_sign = 0;
     else
@@ -204,12 +216,12 @@ for j = 4: length(all_names)
     end
     sprintf('Diagonal sign: %d', diag_sign);
 
-    % 28. DiagonalNonZeros
+    % 27. DiagonalNonZeros
     % counts the number of nonzeros on the diagonal
     nnz_diag = nnz(D);
     sprintf('Diagonal non zeros: %d', nnz_diag);
     sprintf('name:: %s', all_files(j).name);
 
-    fprintf(out_file, '%s, %i, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f \n', all_files(j).name, n, non_zeros, max_non_zeros_per_row, min_non_zeros_per_row, full(avg_non_zeros_per_row), full(sum_abs_non_zero), symmetricity, avg_diag_dist, non_zero_pattern_symmetryV1, full(tr), full(abs_trace), full(one_norm), full(inf_norm), fro_norm, full(sym_inf_norm), full(sym_fro_norm), full(anti_sym_inf_norm), anti_sym_fro_norm, full(diag_avg), row_diag_dominance, col_diag_dominance, row_variance, col_variance, lower_bw, upper_bw, diag_mean, diag_sign, nnz_diag );
+    fprintf(out_file, '%s, %i, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f, %f \n', all_files(j).name, n, non_zeros, max_non_zeros_per_row, min_non_zeros_per_row, full(avg_non_zeros_per_row), full(sum_abs_non_zero), symmetricity, avg_diag_dist, non_zero_pattern_symmetryV1, full(tr), full(abs_trace), full(one_norm), full(inf_norm), fro_norm, full(sym_inf_norm), full(sym_fro_norm), full(anti_sym_inf_norm), anti_sym_fro_norm, full(diag_avg), row_diag_dominance, col_diag_dominance, row_variance, row_variance_nonzeros, col_variance, col_variance_nonzeros, lower_bw, upper_bw, diag_sign, nnz_diag );
     movefile(in_file,'../DONE2')
 end
