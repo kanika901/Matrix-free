@@ -1,0 +1,72 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.ADTree -B 10 -E -3
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R31-weka.filters.unsupervised.attribute.Remove-R2,4-7,9,11-15,17-20,22-28-weka.filters.unsupervised.attribute.Remove-R2,4
+Instances:    39996
+Attributes:   7
+               MinNonzerosPerRow
+               lowerBandwidth
+               ColumnVariance
+               DiagonalAverage
+               DiagonalNonZeros
+              solver
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Alternating decision tree:
+
+: -0.181
+|  (1) lowerBandwidth < 328: 0.815
+|  (1) lowerBandwidth >= 328: -0.547
+|  |  (2) DiagonalNonZeros < 366.5: -4.226
+|  |  (2) DiagonalNonZeros >= 366.5: 0.325
+|  |  |  (4) MinNonzerosPerRow < 1.5: -0.313
+|  |  |  |  (6) DiagonalAverage < 0.025: -3.526
+|  |  |  |  (6) DiagonalAverage >= 0.025: 0.172
+|  |  |  (4) MinNonzerosPerRow >= 1.5: 1.08
+|  |  |  (9) DiagonalNonZeros < 8630.5: 0.286
+|  |  |  (9) DiagonalNonZeros >= 8630.5: -0.979
+|  (3) DiagonalAverage < 0.336: -0.76
+|  |  (7) ColumnVariance < 0: 0.829
+|  |  (7) ColumnVariance >= 0: -0.438
+|  |  |  (10) DiagonalNonZeros < 1145: -0.664
+|  |  |  (10) DiagonalNonZeros >= 1145: 1.695
+|  (3) DiagonalAverage >= 0.336: 0.486
+|  (5) DiagonalNonZeros < 26: -1.899
+|  (5) DiagonalNonZeros >= 26: 0.034
+|  (8) MinNonzerosPerRow < 0.5: -3.403
+|  (8) MinNonzerosPerRow >= 0.5: 0.008
+Legend: -ve = good, +ve = bad
+Tree size (total number of nodes): 31
+Leaves (number of predictor nodes): 21
+
+Time taken to build model: 1.19 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       36989               92.4817 %
+Incorrectly Classified Instances      3007                7.5183 %
+Kappa statistic                          0.8477
+Mean absolute error                      0.1842
+Root mean squared error                  0.2653
+Relative absolute error                 38.0498 %
+Root relative squared error             53.9373 %
+Total Number of Instances            39996     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.891     0.027      0.979     0.891     0.933      0.961    good
+                 0.973     0.109      0.862     0.973     0.914      0.961    bad
+Weighted Avg.    0.925     0.061      0.931     0.925     0.925      0.961
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 21007  2564 |     a = good
+   443 15982 |     b = bad
+
+

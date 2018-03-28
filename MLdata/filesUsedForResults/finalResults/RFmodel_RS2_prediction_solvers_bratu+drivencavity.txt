@@ -1,0 +1,22 @@
+bratu: 
+75830647 iBCGS+ASM(1)
+---------------------
+drivencavity:
+lgmres,bjacobi 
+cg,asm(0)
+lsqr,bjacobi
+gmres,asm(0) 
+fgmres,asm(1) 
+ibcgs,asm(1)
+ibcgs,asm(0)
+ibcgs,bjacobi
+
+Above solvers with their solver ids: 
+91845162 ,  -ksp_type lgmres -pc_type bjacobi 
+95762355 ,  -ksp_type cg -pc_type asm -pc_asm_overlap 0
+85483012 ,  -ksp_type lsqr -pc_type bjacobi
+30870722 ,  -ksp_type gmres -pc_type asm -pc_asm_overlap 0 
+45869640 ,  -ksp_type fgmres -pc_type asm -pc_asm_overlap 1 
+75830647 ,  -ksp_type ibcgs -pc_type asm -pc_asm_overlap 1
+75830646 ,  -ksp_type ibcgs -pc_type asm -pc_asm_overlap 0
+18524981 ,  -ksp_type ibcgs -pc_type bjacobi

@@ -1,0 +1,388 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     petsc_data-weka.filters.unsupervised.attribute.Remove-R31-weka.filters.unsupervised.attribute.Remove-R2,4-7,9,11-15,17-20,22-28-weka.filters.unsupervised.attribute.Remove-R2,4
+Instances:    39996
+Attributes:   7
+               MinNonzerosPerRow
+               lowerBandwidth
+               ColumnVariance
+               DiagonalAverage
+               DiagonalNonZeros
+              solver
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+ lowerBandwidth <= 327
+|    DiagonalNonZeros <= 25
+|   |    MinNonzerosPerRow <= 2: good (1188.0)
+|   |    MinNonzerosPerRow > 2: bad (132.0/10.0)
+|    DiagonalNonZeros > 25
+|   |    MinNonzerosPerRow <= 0: good (264.0)
+|   |    MinNonzerosPerRow > 0
+|   |   |    DiagonalAverage <= 0.466667
+|   |   |   |    ColumnVariance <= 0.000354
+|   |   |   |   |    MinNonzerosPerRow <= 7: bad (1452.0/64.0)
+|   |   |   |   |    MinNonzerosPerRow > 7
+|   |   |   |   |   |    lowerBandwidth <= 150: good (66.0)
+|   |   |   |   |   |    lowerBandwidth > 150: bad (66.0/4.0)
+|   |   |   |    ColumnVariance > 0.000354
+|   |   |   |   |    MinNonzerosPerRow <= 5
+|   |   |   |   |   |    lowerBandwidth <= 13: bad (132.0/6.0)
+|   |   |   |   |   |    lowerBandwidth > 13
+|   |   |   |   |   |   |    DiagonalAverage <= 0.337976: good (594.0)
+|   |   |   |   |   |   |    DiagonalAverage > 0.337976
+|   |   |   |   |   |   |   |    lowerBandwidth <= 32: good (66.0)
+|   |   |   |   |   |   |   |    lowerBandwidth > 32: bad (132.0/12.0)
+|   |   |   |   |    MinNonzerosPerRow > 5: bad (132.0/3.0)
+|   |   |    DiagonalAverage > 0.466667
+|   |   |   |   solver = 89565283: bad (163.0/8.0)
+|   |   |   |   solver = 8793455: bad (0.0)
+|   |   |   |   solver = 90197667: bad (0.0)
+|   |   |   |   solver = 49598909: bad (0.0)
+|   |   |   |   solver = 91036839: bad (163.0/8.0)
+|   |   |   |   solver = 45869639
+|   |   |   |   |    MinNonzerosPerRow <= 1
+|   |   |   |   |   |    lowerBandwidth <= 101
+|   |   |   |   |   |   |    DiagonalNonZeros <= 2205
+|   |   |   |   |   |   |   |    lowerBandwidth <= 48: bad (6.0)
+|   |   |   |   |   |   |   |    lowerBandwidth > 48
+|   |   |   |   |   |   |   |   |    ColumnVariance <= 0.510704: bad (3.0/1.0)
+|   |   |   |   |   |   |   |   |    ColumnVariance > 0.510704: good (2.0)
+|   |   |   |   |   |   |    DiagonalNonZeros > 2205: good (5.0)
+|   |   |   |   |   |    lowerBandwidth > 101: bad (26.0)
+|   |   |   |   |    MinNonzerosPerRow > 1: bad (121.0/3.0)
+|   |   |   |   solver = 45869638
+|   |   |   |   |    MinNonzerosPerRow <= 1
+|   |   |   |   |   |    lowerBandwidth <= 101
+|   |   |   |   |   |   |    DiagonalAverage <= 954735.2362: good (13.0/3.0)
+|   |   |   |   |   |   |    DiagonalAverage > 954735.2362: bad (3.0)
+|   |   |   |   |   |    lowerBandwidth > 101: bad (26.0)
+|   |   |   |   |    MinNonzerosPerRow > 1: bad (121.0/4.0)
+|   |   |   |   solver = 45869637: bad (163.0/12.0)
+|   |   |   |   solver = 47942867: bad (163.0/8.0)
+|   |   |   |   solver = 89269802: bad (163.0/8.0)
+|   |   |   |   solver = 89269803: bad (163.0/8.0)
+|   |   |   |   solver = 89269801: bad (163.0/10.0)
+|   |   |   |   solver = 89269804: bad (163.0/8.0)
+|   |   |   |   solver = 59072883: bad (0.0)
+|   |   |   |   solver = 59072882: bad (0.0)
+|   |   |   |   solver = 59072881: bad (0.0)
+|   |   |   |   solver = 7285381: bad (0.0)
+|   |   |   |   solver = 7285384: bad (0.0)
+|   |   |   |   solver = 59072884: bad (0.0)
+|   |   |   |   solver = 49598911: bad (0.0)
+|   |   |   |   solver = 49598910: bad (0.0)
+|   |   |   |   solver = 49598912: bad (0.0)
+|   |   |   |   solver = 30870721: bad (163.0/8.0)
+|   |   |   |   solver = 36025723: bad (0.0)
+|   |   |   |   solver = 36025722: bad (0.0)
+|   |   |   |   solver = 53302993: bad (163.0/8.0)
+|   |   |   |   solver = 30870720: bad (163.0/8.0)
+|   |   |   |   solver = 64278029: bad (163.0/8.0)
+|   |   |   |   solver = 36025724: bad (0.0)
+|   |   |   |   solver = 44526267: bad (163.0/8.0)
+|   |   |   |   solver = 8793454: bad (0.0)
+|   |   |   |   solver = 8793456: bad (0.0)
+|   |   |   |   solver = 8793453: bad (0.0)
+|   |   |   |   solver = 17734818: bad (163.0/8.0)
+|   |   |   |   solver = 32168839: bad (0.0)
+|   |   |   |   solver = 32168838: bad (0.0)
+|   |   |   |   solver = 57331597: bad (0.0)
+|   |   |   |   solver = 95762352: bad (163.0/10.0)
+|   |   |   |   solver = 57331599: bad (0.0)
+|   |   |   |   solver = 57331598: bad (0.0)
+|   |   |   |   solver = 32168837: bad (0.0)
+|   |   |   |   solver = 88865078: bad (0.0)
+|   |   |   |   solver = 88865079: bad (0.0)
+|   |   |   |   solver = 49834417: bad (163.0/8.0)
+|   |   |   |   solver = 49834419: bad (163.0/8.0)
+|   |   |   |   solver = 49834418: bad (163.0/8.0)
+|   |   |   |   solver = 88865076: bad (0.0)
+|   |   |   |   solver = 88865077: bad (0.0)
+|   |   |   |   solver = 11256942: bad (163.0/8.0)
+|   |   |   |   solver = 11256943: bad (163.0/8.0)
+|   |   |   |   solver = 11256941: bad (163.0/8.0)
+|   |   |   |   solver = 42851841: bad (163.0/9.0)
+|   |   |   |   solver = 11256944: bad (163.0/8.0)
+|   |   |   |   solver = 31459546: bad (163.0/8.0)
+|   |   |   |   solver = 17887723: bad (163.0/8.0)
+|   |   |   |   solver = 91845162: bad (163.0/10.0)
+|   |   |   |   solver = 53362206: bad (163.0/8.0)
+|   |   |   |   solver = 95762355: bad (163.0/16.0)
+|   |   |   |   solver = 12321508: bad (163.0/10.0)
+|   |   |   |   solver = 75830644
+|   |   |   |   |    DiagonalNonZeros <= 961
+|   |   |   |   |   |    DiagonalAverage <= 112.425992
+|   |   |   |   |   |   |    ColumnVariance <= 0.064649
+|   |   |   |   |   |   |   |    ColumnVariance <= 0.035318: good (23.0/7.0)
+|   |   |   |   |   |   |   |    ColumnVariance > 0.035318: bad (3.0)
+|   |   |   |   |   |   |    ColumnVariance > 0.064649: good (19.0/1.0)
+|   |   |   |   |   |    DiagonalAverage > 112.425992
+|   |   |   |   |   |   |    lowerBandwidth <= 117
+|   |   |   |   |   |   |   |    MinNonzerosPerRow <= 1: bad (4.0)
+|   |   |   |   |   |   |   |    MinNonzerosPerRow > 1
+|   |   |   |   |   |   |   |   |    ColumnVariance <= 688408155.2: bad (9.0/2.0)
+|   |   |   |   |   |   |   |   |    ColumnVariance > 688408155.2
+|   |   |   |   |   |   |   |   |   |    ColumnVariance <= 3.61598E27: good (17.0/3.0)
+|   |   |   |   |   |   |   |   |   |    ColumnVariance > 3.61598E27: bad (2.0)
+|   |   |   |   |   |   |    lowerBandwidth > 117: bad (9.0)
+|   |   |   |   |    DiagonalNonZeros > 961: bad (77.0/9.0)
+|   |   |   |   solver = 57331600: bad (0.0)
+|   |   |   |   solver = 43373444: bad (0.0)
+|   |   |   |   solver = 95762353: bad (163.0/12.0)
+|   |   |   |   solver = 43373441: bad (0.0)
+|   |   |   |   solver = 43373442: bad (0.0)
+|   |   |   |   solver = 43373443: bad (0.0)
+|   |   |   |   solver = 91068411: bad (0.0)
+|   |   |   |   solver = 91068410: bad (0.0)
+|   |   |   |   solver = 5890861: bad (0.0)
+|   |   |   |   solver = 85483012
+|   |   |   |   |    MinNonzerosPerRow <= 5
+|   |   |   |   |   |    DiagonalAverage <= 4.84332
+|   |   |   |   |   |   |    MinNonzerosPerRow <= 2
+|   |   |   |   |   |   |   |    lowerBandwidth <= 101
+|   |   |   |   |   |   |   |   |    lowerBandwidth <= 49: bad (2.0)
+|   |   |   |   |   |   |   |   |    lowerBandwidth > 49: good (5.0)
+|   |   |   |   |   |   |   |    lowerBandwidth > 101: bad (18.0/1.0)
+|   |   |   |   |   |   |    MinNonzerosPerRow > 2: bad (25.0)
+|   |   |   |   |   |    DiagonalAverage > 4.84332
+|   |   |   |   |   |   |    DiagonalAverage <= 99601.38852: good (34.0/15.0)
+|   |   |   |   |   |   |    DiagonalAverage > 99601.38852: bad (36.0/8.0)
+|   |   |   |   |    MinNonzerosPerRow > 5: bad (43.0/2.0)
+|   |   |   |   solver = 5890863: bad (0.0)
+|   |   |   |   solver = 5890862: bad (0.0)
+|   |   |   |   solver = 18868444: bad (0.0)
+|   |   |   |   solver = 18868441: bad (0.0)
+|   |   |   |   solver = 18868443: bad (0.0)
+|   |   |   |   solver = 18868442: bad (0.0)
+|   |   |   |   solver = 91068408: bad (0.0)
+|   |   |   |   solver = 47942864: bad (163.0/8.0)
+|   |   |   |   solver = 47942865: bad (163.0/8.0)
+|   |   |   |   solver = 47942866: bad (163.0/8.0)
+|   |   |   |   solver = 91068409: bad (0.0)
+|   |   |   |   solver = 8520536: bad (163.0/8.0)
+|   |   |   |   solver = 5890860: bad (0.0)
+|   |   |   |   solver = 82456576: bad (163.0/8.0)
+|   |   |   |   solver = 29030069: bad (0.0)
+|   |   |   |   solver = 95762354: bad (163.0/15.0)
+|   |   |   |   solver = 90783920: bad (163.0/8.0)
+|   |   |   |   solver = 99720138: bad (163.0/16.0)
+|   |   |   |   solver = 29030071: bad (0.0)
+|   |   |   |   solver = 29030070: bad (0.0)
+|   |   |   |   solver = 29030072: bad (0.0)
+|   |   |   |   solver = 85490469: bad (0.0)
+|   |   |   |   solver = 30870723: bad (163.0/8.0)
+|   |   |   |   solver = 30870722: bad (163.0/8.0)
+|   |   |   |   solver = 26415435: bad (0.0)
+|   |   |   |   solver = 26415434: bad (0.0)
+|   |   |   |   solver = 26415433: bad (0.0)
+|   |   |   |   solver = 26415432: bad (0.0)
+|   |   |   |   solver = 13323659: bad (163.0/8.0)
+|   |   |   |   solver = 45869640
+|   |   |   |   |    MinNonzerosPerRow <= 1
+|   |   |   |   |   |    lowerBandwidth <= 101
+|   |   |   |   |   |   |    DiagonalAverage <= 189372.7785
+|   |   |   |   |   |   |   |    ColumnVariance <= 0.114989: bad (4.0/1.0)
+|   |   |   |   |   |   |   |    ColumnVariance > 0.114989: good (7.0/1.0)
+|   |   |   |   |   |   |    DiagonalAverage > 189372.7785: bad (5.0)
+|   |   |   |   |   |    lowerBandwidth > 101: bad (26.0)
+|   |   |   |   |    MinNonzerosPerRow > 1: bad (121.0/3.0)
+|   |   |   |   solver = 36564233: bad (163.0/8.0)
+|   |   |   |   solver = 68908713: bad (163.0/8.0)
+|   |   |   |   solver = 7285382: bad (0.0)
+|   |   |   |   solver = 36564232: bad (163.0/8.0)
+|   |   |   |   solver = 7285383: bad (0.0)
+|   |   |   |   solver = 75830645: bad (163.0/40.0)
+|   |   |   |   solver = 36564234: bad (163.0/8.0)
+|   |   |   |   solver = 81986705: bad (163.0/8.0)
+|   |   |   |   solver = 29553941: bad (0.0)
+|   |   |   |   solver = 29553943: bad (0.0)
+|   |   |   |   solver = 29553942: bad (0.0)
+|   |   |   |   solver = 69654761: bad (0.0)
+|   |   |   |   solver = 29553944: bad (0.0)
+|   |   |   |   solver = 69654763: bad (0.0)
+|   |   |   |   solver = 69654762: bad (0.0)
+|   |   |   |   solver = 32874609: bad (0.0)
+|   |   |   |   solver = 32168840: bad (0.0)
+|   |   |   |   solver = 90197664: bad (0.0)
+|   |   |   |   solver = 90197665: bad (0.0)
+|   |   |   |   solver = 90197666: bad (0.0)
+|   |   |   |   solver = 69654760: bad (0.0)
+|   |   |   |   solver = 37052870
+|   |   |   |   |    DiagonalNonZeros <= 238
+|   |   |   |   |   |    MinNonzerosPerRow <= 3: good (19.0/7.0)
+|   |   |   |   |   |    MinNonzerosPerRow > 3
+|   |   |   |   |   |   |    MinNonzerosPerRow <= 5: bad (11.0)
+|   |   |   |   |   |   |    MinNonzerosPerRow > 5
+|   |   |   |   |   |   |   |    MinNonzerosPerRow <= 10: good (2.0)
+|   |   |   |   |   |   |   |    MinNonzerosPerRow > 10: bad (2.0)
+|   |   |   |   |    DiagonalNonZeros > 238: bad (129.0/13.0)
+|   |   |   |   solver = 37052871: bad (163.0/8.0)
+|   |   |   |   solver = 19932321: bad (0.0)
+|   |   |   |   solver = 19932323: bad (0.0)
+|   |   |   |   solver = 19932322: bad (0.0)
+|   |   |   |   solver = 19932324: bad (0.0)
+|   |   |   |   solver = 80361466: bad (163.0/8.0)
+|   |   |   |   solver = 80361467: bad (163.0/8.0)
+|   |   |   |   solver = 80361464: bad (163.0/8.0)
+|   |   |   |   solver = 80361465: bad (163.0/8.0)
+|   |   |   |   solver = 49834420: bad (163.0/8.0)
+|   |   |   |   solver = 1216556: bad (163.0/8.0)
+|   |   |   |   solver = 38678404: bad (0.0)
+|   |   |   |   solver = 38678401: bad (0.0)
+|   |   |   |   solver = 38678402: bad (0.0)
+|   |   |   |   solver = 38678403: bad (0.0)
+|   |   |   |   solver = 32874611: bad (0.0)
+|   |   |   |   solver = 32874610: bad (0.0)
+|   |   |   |   solver = 32874612: bad (0.0)
+|   |   |   |   solver = 44114477: bad (0.0)
+|   |   |   |   solver = 44114476: bad (0.0)
+|   |   |   |   solver = 44114479: bad (0.0)
+|   |   |   |   solver = 44114478: bad (0.0)
+|   |   |   |   solver = 36564235: bad (163.0/8.0)
+|   |   |   |   solver = 36025721: bad (0.0)
+|   |   |   |   solver = 75830647
+|   |   |   |   |    ColumnVariance <= 31.938035
+|   |   |   |   |   |    MinNonzerosPerRow <= 4
+|   |   |   |   |   |   |    MinNonzerosPerRow <= 3
+|   |   |   |   |   |   |   |    DiagonalNonZeros <= 441: good (17.0)
+|   |   |   |   |   |   |   |    DiagonalNonZeros > 441
+|   |   |   |   |   |   |   |   |    DiagonalAverage <= 3.528368: bad (8.0/2.0)
+|   |   |   |   |   |   |   |   |    DiagonalAverage > 3.528368
+|   |   |   |   |   |   |   |   |   |    DiagonalAverage <= 4.112334: good (17.0)
+|   |   |   |   |   |   |   |   |   |    DiagonalAverage > 4.112334
+|   |   |   |   |   |   |   |   |   |   |    ColumnVariance <= 0.114989: bad (2.0)
+|   |   |   |   |   |   |   |   |   |   |    ColumnVariance > 0.114989: good (5.0)
+|   |   |   |   |   |   |    MinNonzerosPerRow > 3
+|   |   |   |   |   |   |   |    DiagonalAverage <= 3.51005: good (4.0)
+|   |   |   |   |   |   |   |    DiagonalAverage > 3.51005: bad (9.0/3.0)
+|   |   |   |   |   |    MinNonzerosPerRow > 4: good (20.0)
+|   |   |   |   |    ColumnVariance > 31.938035
+|   |   |   |   |   |    DiagonalNonZeros <= 2351
+|   |   |   |   |   |   |    MinNonzerosPerRow <= 1
+|   |   |   |   |   |   |   |    DiagonalAverage <= 961.487989: good (3.0/1.0)
+|   |   |   |   |   |   |   |    DiagonalAverage > 961.487989: bad (9.0)
+|   |   |   |   |   |   |    MinNonzerosPerRow > 1
+|   |   |   |   |   |   |   |    MinNonzerosPerRow <= 16: good (47.0/19.0)
+|   |   |   |   |   |   |   |    MinNonzerosPerRow > 16: bad (4.0)
+|   |   |   |   |   |    DiagonalNonZeros > 2351: bad (18.0/1.0)
+|   |   |   |   solver = 75830646
+|   |   |   |   |    lowerBandwidth <= 2: bad (15.0)
+|   |   |   |   |    lowerBandwidth > 2
+|   |   |   |   |   |    lowerBandwidth <= 315
+|   |   |   |   |   |   |    ColumnVariance <= 4.18676E13
+|   |   |   |   |   |   |   |    MinNonzerosPerRow <= 1
+|   |   |   |   |   |   |   |   |    DiagonalNonZeros <= 3060: bad (20.0/3.0)
+|   |   |   |   |   |   |   |   |    DiagonalNonZeros > 3060: good (3.0)
+|   |   |   |   |   |   |   |    MinNonzerosPerRow > 1
+|   |   |   |   |   |   |   |   |    MinNonzerosPerRow <= 6: good (70.0/19.0)
+|   |   |   |   |   |   |   |   |    MinNonzerosPerRow > 6
+|   |   |   |   |   |   |   |   |   |    lowerBandwidth <= 69: good (4.0)
+|   |   |   |   |   |   |   |   |   |    lowerBandwidth > 69
+|   |   |   |   |   |   |   |   |   |   |    lowerBandwidth <= 129: bad (8.0)
+|   |   |   |   |   |   |   |   |   |   |    lowerBandwidth > 129
+|   |   |   |   |   |   |   |   |   |   |   |    lowerBandwidth <= 208: good (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |    lowerBandwidth > 208: bad (3.0)
+|   |   |   |   |   |   |    ColumnVariance > 4.18676E13: good (25.0/1.0)
+|   |   |   |   |   |    lowerBandwidth > 315: bad (12.0)
+|   |   |   |   solver = 85490471: bad (0.0)
+|   |   |   |   solver = 85490470: bad (0.0)
+|   |   |   |   solver = 85490472: bad (0.0)
+|   |   |   |   solver = 18524981
+|   |   |   |   |    lowerBandwidth <= 99
+|   |   |   |   |   |    lowerBandwidth <= 20
+|   |   |   |   |   |   |    ColumnVariance <= 7.36791E17: bad (20.0/1.0)
+|   |   |   |   |   |   |    ColumnVariance > 7.36791E17: good (3.0)
+|   |   |   |   |   |    lowerBandwidth > 20: good (55.0/5.0)
+|   |   |   |   |    lowerBandwidth > 99
+|   |   |   |   |   |    ColumnVariance <= 576320.6193
+|   |   |   |   |   |   |    MinNonzerosPerRow <= 1: bad (20.0/1.0)
+|   |   |   |   |   |   |    MinNonzerosPerRow > 1
+|   |   |   |   |   |   |   |    MinNonzerosPerRow <= 5
+|   |   |   |   |   |   |   |   |    DiagonalAverage <= 27.071217: good (15.0/3.0)
+|   |   |   |   |   |   |   |   |    DiagonalAverage > 27.071217: bad (3.0)
+|   |   |   |   |   |   |   |    MinNonzerosPerRow > 5: bad (18.0/1.0)
+|   |   |   |   |   |    ColumnVariance > 576320.6193
+|   |   |   |   |   |   |    DiagonalNonZeros <= 340
+|   |   |   |   |   |   |   |    DiagonalNonZeros <= 155: good (2.0)
+|   |   |   |   |   |   |   |    DiagonalNonZeros > 155: bad (5.0/1.0)
+|   |   |   |   |   |   |    DiagonalNonZeros > 340: good (22.0/2.0)
+|   |   |   |   solver = 37052869: bad (163.0/26.0)
+|   |   |   |   solver = 37052868: bad (163.0/38.0)
+ lowerBandwidth > 327
+|    DiagonalNonZeros <= 366: good (9702.0)
+|    DiagonalNonZeros > 366
+|   |    MinNonzerosPerRow <= 1
+|   |   |    DiagonalAverage <= 0.529408
+|   |   |   |    lowerBandwidth <= 12916
+|   |   |   |   |    DiagonalAverage <= 0.259888: good (7590.0)
+|   |   |   |   |    DiagonalAverage > 0.259888
+|   |   |   |   |   |    DiagonalAverage <= 0.260602: bad (132.0/2.0)
+|   |   |   |   |   |    DiagonalAverage > 0.260602: good (924.0)
+|   |   |   |    lowerBandwidth > 12916: bad (66.0/2.0)
+|   |   |    DiagonalAverage > 0.529408
+|   |   |   |    DiagonalAverage <= 363921.0607
+|   |   |   |   |    DiagonalNonZeros <= 9604
+|   |   |   |   |   |    DiagonalAverage <= 24811.89062
+|   |   |   |   |   |   |    MinNonzerosPerRow <= 0: good (198.0)
+|   |   |   |   |   |   |    MinNonzerosPerRow > 0
+|   |   |   |   |   |   |   |    lowerBandwidth <= 1997: bad (858.0/45.0)
+|   |   |   |   |   |   |   |    lowerBandwidth > 1997
+|   |   |   |   |   |   |   |   |    lowerBandwidth <= 7025
+|   |   |   |   |   |   |   |   |   |    DiagonalAverage <= 2254.983725
+|   |   |   |   |   |   |   |   |   |   |    lowerBandwidth <= 5854: good (330.0)
+|   |   |   |   |   |   |   |   |   |   |    lowerBandwidth > 5854
+|   |   |   |   |   |   |   |   |   |   |   |    lowerBandwidth <= 5984: bad (66.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |    lowerBandwidth > 5984: good (132.0)
+|   |   |   |   |   |   |   |   |   |    DiagonalAverage > 2254.983725: bad (132.0/9.0)
+|   |   |   |   |   |   |   |   |    lowerBandwidth > 7025: bad (198.0/6.0)
+|   |   |   |   |   |    DiagonalAverage > 24811.89062: good (264.0)
+|   |   |   |   |    DiagonalNonZeros > 9604: good (594.0)
+|   |   |   |    DiagonalAverage > 363921.0607: bad (792.0/33.0)
+|   |    MinNonzerosPerRow > 1
+|   |   |    DiagonalNonZeros <= 13209
+|   |   |   |    DiagonalNonZeros <= 8205: bad (2442.0/114.0)
+|   |   |   |    DiagonalNonZeros > 8205
+|   |   |   |   |    MinNonzerosPerRow <= 2: good (132.0)
+|   |   |   |   |    MinNonzerosPerRow > 2: bad (264.0/8.0)
+|   |   |    DiagonalNonZeros > 13209: good (198.0)
+
+Number of Leaves  : 	244
+
+Size of the tree : 	335
+
+
+Time taken to build model: 0.64 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances       38797               97.0022 %
+Incorrectly Classified Instances      1199                2.9978 %
+Kappa statistic                          0.9386
+Mean absolute error                      0.0513
+Root mean squared error                  0.1644
+Relative absolute error                 10.5979 %
+Root relative squared error             33.4105 %
+Total Number of Instances            39996     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.956     0.009      0.993     0.956     0.974      0.979    good
+                 0.991     0.044      0.939     0.991     0.964      0.979    bad
+Weighted Avg.    0.97      0.024      0.971     0.97      0.97       0.979
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 22523  1048 |     a = good
+   151 16274 |     b = bad
+
+
