@@ -198,8 +198,7 @@ for j = 4: length(all_names)
 
     % 27. DiagonalSign
     %// indicates the diagonal sign pattern
-    %// -2 all negative, -1 nonpositive, 0 all zero, 1 nonnegative, 2 all positive, 
-    %// 3 some negative,some or no zero,some positive
+    %// -2 all negative, -1 nonpositive, 0 all zero, 1 nonnegative, 2 all positive
     D = diag(A);
     if all(D(:) == 0)== 1 % all elements are zero
         diag_sign = 0;
@@ -209,7 +208,7 @@ for j = 4: length(all_names)
         elseif (any(D(:) < 0)) == 1 % some are nonpositive
             diag_sign = -1;
         elseif (any(D(:) > 0)) == 1 % some are positive
-            diag_sign = -1;
+            diag_sign = 1;
         elseif (all(D(:) > 0)) == 1 % all are positive
             diag_sign = 2;
         end
