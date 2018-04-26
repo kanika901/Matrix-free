@@ -12,7 +12,6 @@ file_location = '/Volumes/Kank/MatrixFree/TestMatrices';
 all_files = dir(file_location);
 all_names = { all_files.name };
 global in_file;
-
 out_file = fopen('/Volumes/Kank/MatrixFree/RS1test_set2.csv','a') ;
 fprintf(out_file,'Matrix name, MinNonzerosPerRow, NonZeroPatternSymmetryV1, InfinityNorm, ColumnVariance, ColumnVarianceNonZeros, lowerBandwidth, DiagonalNonZeros, DiagonalAverage \n');
 

@@ -1,11 +1,10 @@
 % Computes RS1 structural properties of a square matrix.
-% test set for ML classification
+% UFlorida test set for ML classification
 % Output: nnz, max. no. of non zeros per row etc. 
 % Date: March 21, 2018
 
 cd '/Users/kanikas/Documents/notUsed' %for test set using fresh matrices which are excluded from training set
 file_location = '/Users/kanikas/Documents/notUsed';
-
 %cd '/Volumes/Kank/MatrixFree/DONE';
 %file_location = '/Volumes/Kank/MatrixFree/DONE';
 
@@ -14,7 +13,6 @@ all_names = { all_files.name };
 global in_file;
 
 out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/StructuralProperties/RS1test_set.csv','a') ;
-
 %out_file = fopen('/Volumes/Kank/MatrixFree/test_set.csv','a') ;
 fprintf(out_file,'Matrix name, MinNonzerosPerRow, NonZeroPatternSymmetryV1, lowerBandwidth, InfinityNorm, ColumnVariance, DiagonalNonZeros, DiagonalAverage \n');
 
@@ -49,24 +47,9 @@ for j = 4: length(all_names)
     col_variance = col_variance / out_cols;
     sprintf('Column variance %d', col_variance);
 
-    % 5. lowerBandwidth
+    % 5. LowerBandwidth
     lower_bw = bandwidth(A, 'lower');
     sprintf('Lower bandwidth %d', lower_bw);
-
-%     % 26. DiagonalMean
-%     D = diag(A);
-%     [diag_rows, c] = size(D);
-%     diag_mean = 0.0;
-%     zero_count = 0;
-% 
-%     for i = 1:diag_rows
-%         diag_mean = diag_mean +  D(i);
-%         if D(i) == 0
-%             zero_count = zero_count + 1;
-%         end
-%     end
-%     diag_mean = diag_mean / diag_rows;
-%     sprintf('Diagonal mean: %d ', diag_mean);    
 
     % 6. DiagonalNonZeros
     % counts the number of nonzeros on the diagonal
@@ -80,6 +63,6 @@ for j = 4: length(all_names)
     diag_avg = mean(abs(diag(A)));
     sprintf('Diagonal average: %d', full(diag_avg));
     
-    fprintf(out_file, '%s, %f, %f, %f, %f, %f, %f, %f \n', all_files(j).name,  min_non_zeros_per_row, non_zero_pattern_symmetryV1, lower_bw, full(inf_norm),col_variance, nnz_diag, full(diag_avg) );
+    fprintf(out_file, '%s, %f, %f, %f, %f, %f, %f, %f \n', all_files(j).name, min_non_zeros_per_row, non_zero_pattern_symmetryV1, lower_bw, full(inf_norm),col_variance, nnz_diag, full(diag_avg) );
     movefile(in_file,'/Users/kanikas/Documents/MatrixFree/Matrix-free/MLdata/TestSet')
 end

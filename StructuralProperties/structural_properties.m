@@ -2,12 +2,8 @@
 % Output: nnz, max. no. of non zeros per row etc. 
 % Date: February 13, 2018
 
-%A = rand(1000);
-%A = [ 4 1 0; 0 2 1; 0 0 -1];
-
 %A = load('/Users/kanikas/Documents/research/data_(mat)_matlab_format/mat_files/494_bus.mat');
 %A = load('/Users/kanikas/Documents/DONE/d_ss.mat');
-%A = load('/Users/kanikas/Documents/DONE/hydr1.mat');
 
 % cd '/Users/kanikas/Documents/DONE'
 % file_location = '/Users/kanikas/Documents/DONE';
@@ -18,16 +14,14 @@ all_files = dir(file_location);
 all_names = { all_files.name };
 global in_file;
 
-%out_file = fopen('/Users/kanikas/Documents/MatrixFree/Matrix-free/StructuralProperties/struct_properties_all_matr_final_v5.csv','a') ;
 out_file = fopen('/Volumes/Kank/MatrixFree/struct_properties_all_matr_final_v4.csv','a') ;
-fprintf(out_file,'Matrix name, Dimension, nnz, MaxNonzerosPerRow, MinNonzerosPerRow, AvgNonzerosPerRow, AbsoluteNonZeroSum, symmetricity, AvgDiagDist, NonZeroPatternSymmetryV1, Trace, AbsoluteTrace, OneNorm, InfinityNorm, FrobeniusNorm, SymmetricInfinityNorm, SymmetricFrobeniusNorm, AntiSymmetricInfinityNorm, AntiSymmetricFrobeniusNorm, DiagonalAverage, RowDiagonalDominance, ColDiagonalDominance, RowVariance, RowVarianceNonZeros, ColumnVariance, ColVarianceNonZeros, lowerBandwidth, upperBandwidth, DiagonalSign, DiagonalNonZeros \n');
+fprintf(out_file,'Matrix name, Dimension, nnz, MaxNonzerosPerRow, MinNonzerosPerRow, AvgNonzerosPerRow, AbsoluteNonZeroSum, Symmetricity, AvgDiagDist, NonZeroPatternSymmetryV1, Trace, AbsoluteTrace, OneNorm, InfinityNorm, FrobeniusNorm, SymmetricInfinityNorm, SymmetricFrobeniusNorm, AntiSymmetricInfinityNorm, AntiSymmetricFrobeniusNorm, DiagonalAverage, RowDiagonalDominance, ColDiagonalDominance, RowVariance, RowVarianceNonZeros, ColumnVariance, ColVarianceNonZeros, lowerBandwidth, upperBandwidth, DiagonalSign, DiagonalNonZeros \n');
 
 
 for j = 4: length(all_names)
     sprintf('Computing structural properties for: %s', all_files(j).name)
     in_file = strcat(file_location,'/', all_files(j).name);
     A= load(in_file);
-    
     A = A.Problem.A;
 
     %1. Dimension 
@@ -55,7 +49,7 @@ for j = 4: length(all_names)
     sum_abs_non_zero = sum(sum(abs(A)));
     sprintf('Absolute sum of all non zeros: %d', full(sum_abs_non_zero));
 
-    % 7. NumericValueSymmetryV1 (Checks the numerical symmetry: 1 means symmetric, 0 means non-symmetric)
+    % 7. NumericValueSymmetryV1/Symmetricity (Checks the numerical symmetry: 1 means symmetric, 0 means non-symmetric)
     symmetricity = issymmetric(A);
     sprintf('Symmetricity: 1 means symmetric, 0 means non-symmetric: %d', symmetricity);
 
@@ -84,7 +78,7 @@ for j = 4: length(all_names)
 
     % 13. FrobeniusNorm
     % square root of the sum of the absolute squares of its elements
-    %fro_norm = sqrt(sum(abs(A*A')));
+    % fro_norm = sqrt(sum(abs(A*A')));
     fro_norm = norm(A, 'fro');
     sprintf('Frobenius Norm: %d', fro_norm) ;
 
@@ -115,7 +109,7 @@ for j = 4: length(all_names)
 
     % 19. Average diagonal distance
     % Average distance of nonzero diagonal to the main diagonal
-    %first column with the non-zero
+    % first column with the non-zero
     dist = [find(A(1,:)) find(A(:,1))']; % distance of all the non zero diagonals
     avg_diag_dist = mean(dist-1); % subtract the nonzero diag distance from the main diagonal
     sprintf('Average diagonal distance: %d', avg_diag_dist);
@@ -143,13 +137,11 @@ for j = 4: length(all_names)
 
     % 22. RowVariance
     % computes the row variance of a matrix
-    %out = var(A.').';
     row_variance = 0;
     [out_rows, out_cols] = size(A);
     for i = 1: out_rows
             row_variance = row_variance + var(A(i,:));
     end
-
     row_variance = row_variance / out_rows;
     sprintf('Row variance %d', row_variance);
     
@@ -180,25 +172,10 @@ for j = 4: length(all_names)
     %[lower,upper] = bandwidth(A);
     upper_bw = bandwidth(A, 'upper');
     sprintf('Upper bandwidth %d', upper_bw);
-
-%     % 26. DiagonalMean
-%     D = diag(A);
-%     [diag_rows, c] = size(D);
-%     diag_mean = 0.0;
-%     zero_count = 0;
-% 
-%     for i = 1:diag_rows
-%         diag_mean = diag_mean +  D(i);
-%         if D(i) == 0
-%             zero_count = zero_count + 1;
-%         end
-%     end
-%     diag_mean = diag_mean / diag_rows;
-%     sprintf('Diagonal mean: %d ', diag_mean);    
-
-    % 27. DiagonalSign
-    %// indicates the diagonal sign pattern
-    %// -2 all negative, -1 nonpositive, 0 all zero, 1 nonnegative, 2 all positive
+  
+    % 26. DiagonalSign
+    % indicates the diagonal sign pattern
+    % -2 all negative, -1 some are negative, 0 all zero, 1 some are positive, 2 all positive
     D = diag(A);
     if all(D(:) == 0)== 1 % all elements are zero
         diag_sign = 0;
