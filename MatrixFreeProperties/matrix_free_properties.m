@@ -96,7 +96,7 @@ function [props, names] = matrix_free_properties(F, x)
 		min_non_zeros_per_row = full(min(sum(Jvedges~=0)));
 	else
 		rows = Jvedges(Jcols_edge,:);
-		min_non_zeros_per_row = full(max(sum(rows~=0)));
+		min_non_zeros_per_row = full(min(sum(rows~=0)));
 	end
 	fprintf('Minimum no. of non zeros per row: %f\n', min_non_zeros_per_row);
 
@@ -302,7 +302,7 @@ function [props, names] = matrix_free_properties(F, x)
 
 	% 23. ColumnVariance - 6/10
 	% We compute column variance first for the same reasons as above
-	sample = var(Jcols_mid);
+	sample = var(Jvmid);
 	col_variance = full(mean(sample));
 	fprintf('Column variance %d\n', col_variance);
 
